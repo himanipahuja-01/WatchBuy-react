@@ -8,6 +8,7 @@ function About(props) {
              <SingeProductShow item= "watches" />
              <SingeProductShow item= "watches" />
              <SingeProductShow item= "watches" />
+             <SingeProductShow item= "watches" />
              
 
              {/* <ProductDescription/> */}
