@@ -80,6 +80,17 @@ export const fetchProductsbybrand = (Brand) => async (dispatch) => {
   });
 };
 
+export const fetchProductsAddCart = (id) => async (dispatch) => {
+  const response = await axios.get(
+    `http://localhost:5000/products?id=${id}`
+  );
+  return dispatch({
+    type: "FETCH_PRODUCTS_ADD_CART",
+    payload: response.data,
+  });
+};
+
+
 
 
 // export const fetchProductsbybrand = (Brand) => async (dispatch) => {

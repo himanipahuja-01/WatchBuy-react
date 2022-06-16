@@ -1,8 +1,26 @@
+import axios from "axios";
 import React from "react";
+import { useState, useEffect } from "react";
 import { BsFillEyeFill, BsFillCartFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 function SingleProduct(props) {
+
+  const [itemId, setItemId] = useState([]);
+  // const [all, setAll] = useState(true)
+
+  const handleAddCart = async(id) => {
+    setItemId((prev)=>([...prev, id]))
+    const res = await axios({
+      method: 'patch',
+      url: 'http://localhost:5000/user/1',
+      data: {
+        addcart: itemId
+      }
+  });
+}
+
+
 
   return (
     <div>
@@ -44,7 +62,7 @@ function SingleProduct(props) {
          <Link to="" className="btn btn-sm text-dark p-0">
           <i className="text-primary mr-1"></i>
           <BsFillCartFill className="h3 pe-2" style={{ color: "coral" }} />
-          <span className="fw-bolder fs-6 btn-clr"> Add To Cart</span>
+          <span className="fw-bolder fs-6 btn-clr" onClick={()=>{handleAddCart(props.id)}}> Add To Cart</span>
         </Link>
    </div>
  </div>
