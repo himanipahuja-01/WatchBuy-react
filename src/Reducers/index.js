@@ -2,7 +2,7 @@
 
 import { combineReducers } from "redux";
 import { authReducer } from "./authReducer";
-import {UPDATE_FORM_STATE} from '../Actions'
+import { UPDATE_FORM_STATE } from "../Actions";
 
 const moviesReducer = () => {
   return [
@@ -36,39 +36,45 @@ const selectedMovieReducer = (selectedMovie = null, action) => {
   return selectedMovie;
 };
 
-const fetchUserReducer = (state = [], action)=>{
-  if(action.type === "FETCH_USER"){
+const fetchUserReducer = (state = [], action) => {
+  if (action.type === "FETCH_USER") {
     return action.payload;
   }
   return state;
-}
+};
 
-
-const finalFormReducer =(state = {}, action = {}) =>{
+const finalFormReducer = (state = {}, action = {}) => {
   switch (action.type) {
     case UPDATE_FORM_STATE:
       return {
         ...state,
-        [action.form]: action.payload
-      }
+        [action.form]: action.payload,
+      };
     default:
-      return state
+      return state;
   }
-}
+};
 
-const allCategoryReducer = (state=[], action)=>{
-if(action.type === "FETCH_CATEGORIES"){
-  return action.payload;
-}
-return state;
-}
-
-const allProductsReducer = (state=[], action)=>{
-  if(action.type === "FETCH_PRODUCTS"){
+const allCategoryReducer = (state = [], action) => {
+  if (action.type === "FETCH_CATEGORIES") {
     return action.payload;
   }
   return state;
+};
+
+const allProductsReducer = (state = [], action) => {
+  if (action.type === "FETCH_PRODUCTS") {
+    return action.payload;
   }
+  if (action.type === "FETCH_PRODUCTS_BY_CAT") {
+    return action.payload;
+  }
+  if (action.type === "FETCH_PRODUCTS_BY_BRAND") {
+    return action.payload;
+  }
+  return state;
+};
+
 // const initialstate = {items:[], filteredItems:[], size: ''}
 // const allProductsReducer = (state=initialstate, action)=>{
 //   switch(action.type){
@@ -80,7 +86,6 @@ const allProductsReducer = (state=[], action)=>{
 //   }
 // }
 
-
 const reducers = combineReducers({
   movies: moviesReducer,
   selectedMovie: selectedMovieReducer,
@@ -88,10 +93,7 @@ const reducers = combineReducers({
   userData: fetchUserReducer,
   finalForm: finalFormReducer,
   allCategory: allCategoryReducer,
-  allProducts: allProductsReducer
+  allProducts: allProductsReducer,
 });
-
-
-
 
 export default reducers;

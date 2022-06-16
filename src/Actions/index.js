@@ -50,19 +50,43 @@ export const fetchCategories = () => async (dispatch) => {
   });
 };
 
-export const fetchProducts = (categoryName) => async (dispatch) => {
-  const response = await axios.get(`http://localhost:5000/products?categoryName=${categoryName}`);
+export const fetchProducts = () => async (dispatch) => {
+  const response = await axios.get(
+    'http://localhost:5000/products'
+  );
   return dispatch({
     type: "FETCH_PRODUCTS",
     payload: response.data,
   });
 };
 
+export const fetchProductsByCat = (categoryName) => async (dispatch) => {
+  const response = await axios.get(
+    `http://localhost:5000/products?categoryName=${categoryName}`
+  );
+  return dispatch({
+    type: "FETCH_PRODUCTS_BY_CAT",
+    payload: response.data,
+  });
+};
+
+export const fetchProductsbybrand = (Brand) => async (dispatch) => {
+  const response = await axios.get(
+    `http://localhost:5000/products?Brand=${Brand}`
+  );
+  return dispatch({
+    type: "FETCH_PRODUCTS_BY_BRAND",
+    payload: response.data,
+  });
+};
+
+
+
 // export const fetchProductsbybrand = (Brand) => async (dispatch) => {
 //   return dispatch({
 //     type: "FETCH_PRODUCTS_BY_BRAND",
 //     payload: {
-     
+
 //     },
 //   });
 // };

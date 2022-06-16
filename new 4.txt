@@ -1,0 +1,14 @@
+export const fetchProductsbybrand = (products, Brand) => async (dispatch) => {
+  return dispatch({
+    type: "FETCH_PRODUCTS_BY_BRAND",
+    payload: {
+      Brand: Brand,
+      items:
+        Brand === ""
+          ? products
+          : products.filter(
+              (a) => a.availableBrands.indexOf(Brand.toUpperCase()) >= 0
+            ),
+    },
+  });
+};

@@ -7,26 +7,29 @@ function SingleProduct(props) {
   return (
     <div>
 
- <div className="container mt-4">
-     <div className="card">
-       <div className="figure">
+ <div className="container">
+     <div className="card mt-5">
+       <div className="card-header overflow-hidden" style={{width: '100%', height: '200px'}}>
          <img
            src={props.image}
-           className="card-img-top w-100 zoom image-fluid"
+           style={{width: '100%', height: '100%'}}
+           className="zoom img-fluid figure"
            alt="..."
          />
        </div>
-       <p className="list-group p-2 text-center">
+       <div className="card-body">
+       <h4 className="text-truncate mb-3 text-center">
          {props.name}
-       </p>
-       <div className="d-inline list-group p-2">
-         <p className="ms-0 btn fs-4">${props.price}</p>
-         <p className="me-0 btn text-secondary fs-4">
+       </h4>
+       <div className="d-flex justify-content-center p-2">
+         <h6 className="ms-0 btn fs-4">${props.price}</h6>
+         <h6 className="me-0 btn text-secondary fs-4">
            <del>${props.price-3}</del>
-         </p>
+         </h6>
+       </div>
        </div>
 
-       <div className="d-inline">
+       <div className="card-footer d-flex justify-content-between bg-light border">
          {/* <p className="me-auto btn">{<BsFillEyeFill />}View All</p> */}
 
          <Link

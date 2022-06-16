@@ -39,8 +39,8 @@ class AdminLayout extends Component {
               </li>
 
               <li className="nav-item">
-                <NavLink className="nav-link" activeclassname = "active" to="/Admin/Dashboard">
-                  Appliances
+                <NavLink className="nav-link" activeclassname = "active" to="/AddtoCart">
+                  AddtoCart
                 </NavLink>
               </li>
 

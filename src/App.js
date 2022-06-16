@@ -20,6 +20,7 @@ import AddCategory from "./admin/AddCategory";
 import ProductEdit from "./frontView/ProductEdit";
 import ProductDescription from "./frontView/ProductDescription";
 import CreateUser from "./CreateUser";
+import AddtoCart from "./frontView/AddtoCart";
 // import MovieList from "./MovieList";
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <Route path="/about" element={<About />}></Route>
           <Route path="/Login" element={<Login />}></Route>
           <Route path="/CreateUser" element={<CreateUser />}></Route>
+          <Route path="/AddtoCart" element={<AddtoCart />}></Route>
           <Route path="/ProductDescription/:id" element={<ProductDescription />}>
           </Route>
         </Route>

@@ -37,8 +37,8 @@ function Navigation(props) {
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link" to ="/Admin/Dashboard">
-                Appliances
+              <Link className="nav-link" to ="/AddtoCart">
+                AddtoCart
               </Link>
             </li>
 
