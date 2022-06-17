@@ -42,7 +42,6 @@ function Navigation(props) {
               </Link>
             </li>
 
-            
             <li className="nav-item">
               <Link className="nav-link" to ="/Login">
                 Login

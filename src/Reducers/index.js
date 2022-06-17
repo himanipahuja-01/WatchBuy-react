@@ -40,6 +40,12 @@ const fetchUserReducer = (state = [], action) => {
   if (action.type === "FETCH_USER") {
     return action.payload;
   }
+  if (action.type === "FETCH_PRODUCTS_ADD_CART") {
+    return action.payload;
+  }
+  if (action.type === "FETCH_LOGIN_USER") {
+    return action.payload;
+  }
   return state;
 };
 
@@ -69,9 +75,10 @@ const allProductsReducer = (state = [], action) => {
   if (action.type === "FETCH_PRODUCTS_BY_CAT") {
     return action.payload;
   }
-  if (action.type === "FETCH_PRODUCTS_BY_BRAND") {
+  if (action.type === "FETCH_PRODUCTS_BY_ID") {
     return action.payload;
   }
+ 
   return state;
 };
 

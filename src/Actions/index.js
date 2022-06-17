@@ -42,6 +42,16 @@ export const fetchUser = () => async (dispatch) => {
   });
 };
 
+export const fetchLoginUser = (loginData) => async (dispatch) => {
+  const response = await axios.get(
+    `http://localhost:5000/user?email=${loginData.email}&password=${loginData.password}`
+  );
+  dispatch({
+    type: "FETCH_LOGIN_USER",
+    payload: response.data,
+  });
+};
+
 export const fetchCategories = () => async (dispatch) => {
   const response = await axios.get("http://localhost:5000/categories");
   return dispatch({
@@ -51,9 +61,7 @@ export const fetchCategories = () => async (dispatch) => {
 };
 
 export const fetchProducts = () => async (dispatch) => {
-  const response = await axios.get(
-    'http://localhost:5000/products'
-  );
+  const response = await axios.get("http://localhost:5000/products");
   return dispatch({
     type: "FETCH_PRODUCTS",
     payload: response.data,
@@ -80,18 +88,15 @@ export const fetchProductsbybrand = (Brand) => async (dispatch) => {
   });
 };
 
-export const fetchProductsAddCart = (id) => async (dispatch) => {
+export const fetchProductsbyId = (id) => async (dispatch) => {
   const response = await axios.get(
     `http://localhost:5000/products?id=${id}`
   );
   return dispatch({
-    type: "FETCH_PRODUCTS_ADD_CART",
+    type: "FETCH_PRODUCTS_BY_ID",
     payload: response.data,
   });
 };
-
-
-
 
 // export const fetchProductsbybrand = (Brand) => async (dispatch) => {
 //   return dispatch({

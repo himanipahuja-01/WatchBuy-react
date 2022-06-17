@@ -1,12 +1,42 @@
 import React from 'react';
-import GoogleAuth from './GoogleAuth';
-import { Form, Field} from 'react-final-form'
-
+// import GoogleAuth from './GoogleAuth';
+// import { Form, Field} from 'react-final-form'
+import { useState } from 'react';
+import {fetchLoginUser} from "../Actions/index";
+import { connect } from "react-redux";
+import AddtoCart from './AddtoCart';
+// import { useNavigate } from "react-router-dom";
 
 function Login(props) {
 
-  const onSubmit = async() => {
-  
+  const[loginData, setLoginData] = useState({
+    email: "",
+    password: ""
+  })
+
+  const[isLoggedIn, setIsLoggedIn] = useState(false)
+
+  const handleChange = (e) =>{
+    const name = e.target.name;
+    const value = e.target.value
+
+    // console.log(name)
+    // console.log(value)
+
+    setLoginData((prev)=>({
+      ...prev,
+      [name]: value,
+    }))
+  }
+
+  // let navigate = useNavigate();
+
+  const onSubmit = (e) => {
+  e.preventDefault();
+  console.log(loginData)
+  setIsLoggedIn(true)
+  // navigate("/About");
+
   }
 
     return (
@@ -14,42 +44,37 @@ function Login(props) {
       <div className="container">
         <div className="row">
           <div className="col-lg-8">
-      <Form
-        onSubmit={onSubmit}
-        subscription={{ submitting: true, pristine: true }}
-      >
-        {({ handleSubmit, form, submitting, pristine }) => (
-          <form onSubmit={handleSubmit} className = "form mt-5">
+     
+ 
+          <form onSubmit={onSubmit} className = "form mt-5">
            
             <div className='p-2'>
-              <label className='m-2 form-label'><b>UserName</b></label>
-              <Field
-                name="username"
-                component="input"
+              <label className='m-2 form-label'><b>Email</b></label>
+              <input
+                name="email"
                 type="text"
                 className="form-control"
-                placeholder="UserName"
+                placeholder="email"
+                onChange = {handleChange}
               />
             </div>
          
             <div className='p-2'>
               <label className='m-2 form-label'><b>Password</b></label>
-              <Field
+              <input
                 name="password"
-                component="input"
                 type="password"
                 className="form-control"
                 placeholder="password"
+                onChange = {handleChange}
               />
             </div>
             <div className="buttons p-2">
-              <button type="submit" disabled={submitting || pristine} className="btn btn-dark">
+              <button type="submit" className="btn btn-dark">
                 Submit
               </button>
               <button
                 type="button"
-                onClick={form.reset}
-                disabled={submitting || pristine}
                 className="btn btn-dark ms-2"
               >
                 Reset
@@ -57,11 +82,14 @@ function Login(props) {
             </div>
            
           </form>
-        )}
-      </Form>
+     {isLoggedIn && (
+     
+     <AddtoCart loginData = {loginData} isLoggedIn = {isLoggedIn}/>
+    )}
       </div>
       </div>  
-      <GoogleAuth/>    
+      {/* <GoogleAuth/>     */}
+  
         </div>
     </div>
     
@@ -69,5 +97,12 @@ function Login(props) {
 }
 
 
+const mapToStateProps = (state) => {
+  return {
+    userData: state.userData
+  };
+};
+
+export default connect(mapToStateProps, {fetchLoginUser})( Login );
   
-export default Login;
+

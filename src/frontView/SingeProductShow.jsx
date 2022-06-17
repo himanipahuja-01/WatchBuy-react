@@ -4,10 +4,11 @@ import { connect } from "react-redux";
 import { fetchProducts, fetchProductsByCat } from "../Actions/index";
 import SingleProduct from "./SingleProduct";
 
+
 class SingeProductShow extends Component {
   constructor(props) {
     super(props);
-    console.log('hello')
+    console.log("hello");
   }
   componentDidMount() {
     this.props.fetchProducts();
@@ -17,7 +18,6 @@ class SingeProductShow extends Component {
     // console.log(this.props.fetchProductsByCat())
     return (
       <div>
-
         <div className="container-fluid">
           <div className="row">
             {this.props.products.map((item) => {
@@ -31,6 +31,8 @@ class SingeProductShow extends Component {
                     price={item.price}
                     image={item.image}
                   />
+
+               
                 </div>
               );
             })}
@@ -44,7 +46,10 @@ class SingeProductShow extends Component {
 const mapToStateProps = (state) => {
   return {
     products: state.allProducts,
+ 
   };
 };
 
-export default connect(mapToStateProps, { fetchProducts, fetchProductsByCat })(SingeProductShow);
+export default connect(mapToStateProps, { fetchProducts, fetchProductsByCat })(
+  SingeProductShow
+);
