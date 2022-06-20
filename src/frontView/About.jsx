@@ -7,10 +7,8 @@ import { fetchProductsByCat } from "../Actions/index";
 function About(props) {
   var categoryName = ["watches", "electronics"];
 
-  const handleClick = (item)=>{
-   
+  const handleClick = (item)=>{  
   props.fetchProductsByCat(item)
-    
   }
 
   return (

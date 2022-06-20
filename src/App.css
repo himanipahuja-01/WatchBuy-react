@@ -47,3 +47,10 @@
 #width{
   width: 50px;
 }
+
+.close-icon{
+  position: absolute;
+  left: 955px;
+  top: 5px;
+  cursor: pointer;
+}

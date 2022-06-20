@@ -23,7 +23,7 @@ class SingeProductShow extends Component {
             {this.props.products.map((item) => {
               console.log(this.props.products);
               return (
-                <div className="col-xl-5 col-md-4">
+                <div className="col-xl-4 col-md-4">
                   <SingleProduct
                     key={item.id}
                     id={item.id}

@@ -1,18 +1,28 @@
 import React, { Component } from "react";
+import axios from "axios";
 import { fetchLoginUser, fetchProductsbyId } from "../Actions/index";
 import { connect } from "react-redux";
+import { AiOutlineClose } from "react-icons/ai";
 
 class AddtoCart extends Component {
   constructor(props) {
     super(props);
-    console.log("hello");
+    // console.log("hello");
+    this.state = { count: 1 };
   }
+
+  increase = () => {
+    return this.setState({ count: this.state.count + 1 })
+  };
+
+  decrease = () => {
+    if (this.state.count > 0) {
+      this.setState({ count: this.state.count - 1 });
+    }
+  };
 
   componentDidMount() {
-    this.props.fetchLoginUser(this.props.loginData);
-  }
-
-  componentDidUpdate(prevProps, prevState){
+    this.props.fetchLoginUser();
 
     console.log(this.props.userData);
     localStorage.setItem("userdata", JSON.stringify(this.props.userData[0]));
@@ -20,39 +30,95 @@ class AddtoCart extends Component {
 
     var x;
     if (length > 0) {
-     x = this.props.userData[0].addcart;
+      x = this.props.userData[0].addcart;
     }
-    console.log(x[1])
-        
-    // x.map((id)=>{
-    //   return(
-    //     this.props.fetchProductsbyId(id)
-    //   )
-    // })
-  
+    console.log(x);
+
+    x.map((id) => {
+      console.log(this.props.products);
+      return this.props.fetchProductsbyId(id);
+    });
+    // console.log(this.props.loginData)
   }
 
+  // componentDidUpdate(prevProps, prevState){
+
+  // }
+
+  handleDelete = async (id) => {
+    if (window.confirm("Are you sure you want to delete this product?")) {
+      axios.get(`http://localhost:5000/user/${id}`);
+    }
+  };
+
   render() {
-    
-  console.log(this.props.products)
+    console.log(this.props.loginData);
+    console.log(this.props.userData);
     return (
-     
       <div>
-        <header>
-          <div className="shopping">
-            <h3>Shopping</h3>
-            {this.props.products.map((item) => {
-              
-              return (
-                <div>
-                  <h1>{item.id}</h1>
-                  <h2>{item.ProductName}</h2>
+        <div className="container mt-5">
+          {this.props.products.map((item) => {
+            return (
+              <div
+                className="card mb-3"
+                style={{ width: "1000px", height: "200px" }}
+              >
+                <div className="row g-0">
+                  <div className="col-md-4">
+                    <span
+                      className="close-icon"
+                      onClick={() => this.handleDelete(item.id)}
+                    >
+                      <AiOutlineClose className="fa-2x" />
+                    </span>
+
+                    <img
+                      src={item.image}
+                      className="img rounded-start"
+                      style={{ width: "75%", height: "75%" }}
+                      alt="..."
+                    />
+                  </div>
+                  <div className="col-md-8">
+                    <div className="card-body">
+                      <h5 className="card-title">{item.ProductName}</h5>
+                      <p className="card-text">{item.Brand}</p>
+                      <p className="card-text">
+                        <small className="text-muted">
+                          Last updated 3 mins ago
+                        </small>
+                      </p>
+
+                      <div className="d-flex mt-3 ">
+                        <button
+                          className="btn btn-primary rounded-0"
+                          type="button"
+                          onClick={this.decrease}
+                        >
+                          -
+                        </button>
+                        <input
+                          type="text"
+                          className="form-control bg-white text-center rounded-0"
+                          id="width"
+                          readOnly
+                          value={this.state.count}
+                        />
+                        <button
+                          className="btn btn-primary rounded-0"
+                          type="button"
+                          onClick={this.increase}
+                        >
+                          +
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              );
-            })}
-          
-          </div>
-        </header>
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }
@@ -65,4 +131,6 @@ const mapToStateProps = (state) => {
   };
 };
 
-export default connect(mapToStateProps, { fetchLoginUser, fetchProductsbyId })(AddtoCart);
+export default connect(mapToStateProps, { fetchLoginUser, fetchProductsbyId })(
+  AddtoCart
+);
