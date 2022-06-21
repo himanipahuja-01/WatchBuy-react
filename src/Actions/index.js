@@ -60,13 +60,6 @@ export const fetchCategories = () => async (dispatch) => {
   });
 };
 
-export const fetchProducts = () => async (dispatch) => {
-  const response = await axios.get("http://localhost:5000/products");
-  return dispatch({
-    type: "FETCH_PRODUCTS",
-    payload: response.data,
-  });
-};
 
 export const fetchProductsByCat = (categoryName) => async (dispatch) => {
   const response = await axios.get(
@@ -88,13 +81,22 @@ export const fetchProductsbybrand = (Brand) => async (dispatch) => {
   });
 };
 
-export const fetchProductsbyId = (id) => async (dispatch) => {
+
+export const fetchProducts = () => async (dispatch) => {
+  const response = await axios.get("http://localhost:5000/products");
+  return dispatch({
+    type: "FETCH_PRODUCTS",
+    payload: response.data,
+  });
+};
+
+export const fetchProductsbyId = (id) => async(dispatch) => {
   const response = await axios.get(
     `http://localhost:5000/products?id=${id}`
   );
   return dispatch({
     type: "FETCH_PRODUCTS_BY_ID",
-    payload: response.data,
+    payload: response.data
   });
 };
 
@@ -106,3 +108,60 @@ export const fetchProductsbyId = (id) => async (dispatch) => {
 //     },
 //   });
 // };
+
+export const AllfetchProductRequest = () => async (dispatch) => {
+  const response = await axios.get("http://localhost:5000/products");
+  return dispatch({
+    payload: getAllProduct(response.data),
+  });
+};
+
+// get all product
+export function getAllProduct(payload){
+  return{
+    type: 'GET_ALL_PRODUCT',
+    payload
+  }
+}
+
+// get number cart
+export function getNumberCart(){
+  return{
+    type: 'GET_NUMBER_CART'
+  }
+}
+
+export function AddCart(payload){
+  return {
+    type: 'ADD_CART',
+    payload
+  }
+}
+
+export function UpdateCart(payload){
+  return{
+    type: 'UPDATE_CART',
+    payload
+  }
+}
+
+export function DeleteCart(payload){
+  return{
+    type: 'DELETE_CART',
+    payload
+  }
+}
+
+export function IncreaseQuantity(payload){
+  return{
+    type: 'INCREASE_QUANTITY',
+    payload
+  }
+}
+
+export function DecreaseQuantity(payload){
+  return{
+    type: 'DECREASE_QUANTITY',
+    payload
+  }
+}

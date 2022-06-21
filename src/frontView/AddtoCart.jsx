@@ -34,10 +34,10 @@ class AddtoCart extends Component {
     }
     console.log(x);
 
-    x.map((id) => {
-      console.log(this.props.products);
-      return this.props.fetchProductsbyId(id);
-    });
+    // x.map((id) => {
+    //   console.log(this.props.products);
+      this.props.fetchProductsbyId(x[0]);
+    // });
     // console.log(this.props.loginData)
   }
 

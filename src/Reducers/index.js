@@ -4,6 +4,12 @@ import { combineReducers } from "redux";
 import { authReducer } from "./authReducer";
 import { UPDATE_FORM_STATE } from "../Actions";
 
+const initialProduct = {
+  Cart: [],
+  numberCart: 0,
+  products: [],
+};
+
 const moviesReducer = () => {
   return [
     {
@@ -78,20 +84,86 @@ const allProductsReducer = (state = [], action) => {
   if (action.type === "FETCH_PRODUCTS_BY_ID") {
     return action.payload;
   }
- 
+
   return state;
 };
 
-// const initialstate = {items:[], filteredItems:[], size: ''}
-// const allProductsReducer = (state=initialstate, action)=>{
-//   switch(action.type){
-//     case "FETCH_PRODUCTS":
-//      return {...state, items: action.payload};
-//      case "FETCH_PRODUCTS_BY_BRAND":
-//      return {...state, filteredItems: action.payload.items, Brand: action.payload.Brand};
-//       default: return state;
-//   }
-// }
+function todoProduct(state = initialProduct, action) {
+  switch (action.type) {
+    case "GET_ALL_PRODUCT":
+      return {
+        ...state,
+        products: action.payload,
+      };
+    case "GET_NUMBER_CART":
+      return {
+        ...state,
+      };
+    case "ADD_CART":
+      if (state.numberCart == 0) {
+        let carts = {
+          id: action.payload.id,
+          quantity: 1,
+          name: action.payload.name,
+          image: action.payload.image,
+          price: action.payload.price,
+        };
+        state.Cart.push(carts);
+      } else {
+        let check = false;
+        state.Cart.map((item, key) => {
+          if (item.id === action.payload.id) {
+            state.Cart[key].quantity++;
+            check = true;
+          }
+        });
+
+        if (!check) {
+          let cart = {
+            id: action.payload.id,
+            quantity: 1,
+            ProductName: action.payload.ProductName,
+            image: action.payload.image,
+            price: action.payload.price,
+          };
+          state.Cart.push(cart);
+        }
+      }
+      return {
+        ...state,
+        numberCart: state.numberCart + 1,
+      };
+    case "INCREASE_QUANTITY":
+      state.numberCart++;
+      state.Cart[action.payload].quantity++;
+
+      return {
+        ...state,
+      };
+    case "DELETE_CART":
+      let quantity = state.Cart[action.payload].quantity;
+      return {
+        ...state,
+        numberCart: state.numberCart - quantity,
+        Cart: state.Cart.filter((item) => {
+          return item.id !== state.Cart[action.payload].id;
+        }),
+      };
+    default:
+      return state;
+  }
+}
+
+// // const initialstate = {items:[], filteredItems:[], size: ''}
+// // const allProductsReducer = (state=initialstate, action)=>{
+// //   switch(action.type){
+// //     case "FETCH_PRODUCTS":
+// //      return {...state, items: action.payload};
+// //      case "FETCH_PRODUCTS_BY_BRAND":
+// //      return {...state, filteredItems: action.payload.items, Brand: action.payload.Brand};
+// //       default: return state;
+// //   }
+// // }
 
 const reducers = combineReducers({
   movies: moviesReducer,
@@ -101,6 +173,7 @@ const reducers = combineReducers({
   finalForm: finalFormReducer,
   allCategory: allCategoryReducer,
   allProducts: allProductsReducer,
+  todoProduct: todoProduct,
 });
 
 export default reducers;
