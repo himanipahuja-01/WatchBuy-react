@@ -21,7 +21,7 @@ class SingeProductShow extends Component {
         <div className="container-fluid">
           <div className="row">
             {this.props.products.map((item) => {
-              console.log(this.props.products);
+              // console.log(this.props.products);
               return (
                 <div className="col-xl-4 col-md-4">
                   <SingleProduct

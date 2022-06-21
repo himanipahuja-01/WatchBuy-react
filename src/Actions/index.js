@@ -109,20 +109,6 @@ export const fetchProductsbyId = (id) => async(dispatch) => {
 //   });
 // };
 
-export const AllfetchProductRequest = () => async (dispatch) => {
-  const response = await axios.get("http://localhost:5000/products");
-  return dispatch({
-    payload: getAllProduct(response.data),
-  });
-};
-
-// get all product
-export function getAllProduct(payload){
-  return{
-    type: 'GET_ALL_PRODUCT',
-    payload
-  }
-}
 
 // get number cart
 export function getNumberCart(){
@@ -134,13 +120,6 @@ export function getNumberCart(){
 export function AddCart(payload){
   return {
     type: 'ADD_CART',
-    payload
-  }
-}
-
-export function UpdateCart(payload){
-  return{
-    type: 'UPDATE_CART',
     payload
   }
 }

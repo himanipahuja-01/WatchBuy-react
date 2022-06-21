@@ -1,136 +1,111 @@
-import React, { Component } from "react";
-import axios from "axios";
-import { fetchLoginUser, fetchProductsbyId } from "../Actions/index";
+// import React, { Component } from "react";
+// import axios from "axios";
+import { IncreaseQuantity,DecreaseQuantity,DeleteCart,fetchLoginUser } from "../Actions/index";
 import { connect } from "react-redux";
-import { AiOutlineClose } from "react-icons/ai";
+// import { AiOutlineClose } from "react-icons/ai";
 
-class AddtoCart extends Component {
-  constructor(props) {
-    super(props);
-    // console.log("hello");
-    this.state = { count: 1 };
-  }
 
-  increase = () => {
-    return this.setState({ count: this.state.count + 1 })
-  };
+// var cart = [];
 
-  decrease = () => {
-    if (this.state.count > 0) {
-      this.setState({ count: this.state.count - 1 });
-    }
-  };
+function AddtoCart({items,IncreaseQuantity,DecreaseQuantity,DeleteCart,fetchLoginUser}, props){
+  console.log(items)
+   let ListCart = [];
+   let TotalCart=0;
+   Object.keys(items.Cart).forEach(function(item){
+       TotalCart+=items.Cart[item].quantity * items.Cart[item].price;
+       ListCart.push(items.Cart[item]);
+   });
+   function TotalPrice(price,tonggia){
+       return Number(price * tonggia).toLocaleString('en-US');
+   }
 
-  componentDidMount() {
-    this.props.fetchLoginUser();
+   
 
-    console.log(this.props.userData);
-    localStorage.setItem("userdata", JSON.stringify(this.props.userData[0]));
-    var length = this.props.userData.length;
+//    const IncreaseAdd = async(key,id)=>{
+//           cart.push(id);
+//           var res = await axios({
+//             method: "patch",
+//             url: "http://localhost:5000/user/1",
+//             data: {
+//               addcart: cart,
+//             },
+//           });
+//           IncreaseQuantity(key)
+//    }
 
-    var x;
-    if (length > 0) {
-      x = this.props.userData[0].addcart;
-    }
-    console.log(x);
+    
+    // var length = this.props.userData.length;
+
+    // var x;
+    // if (length > 0) {
+    //   x = this.props.userData[0].addcart;
+    // }
+    // console.log(x);
 
     // x.map((id) => {
     //   console.log(this.props.products);
-      this.props.fetchProductsbyId(x[0]);
+    //   this.props.fetchProductsbyId(x[0]);
     // });
     // console.log(this.props.loginData)
-  }
-
-  // componentDidUpdate(prevProps, prevState){
-
-  // }
-
-  handleDelete = async (id) => {
-    if (window.confirm("Are you sure you want to delete this product?")) {
-      axios.get(`http://localhost:5000/user/${id}`);
-    }
-  };
-
-  render() {
-    console.log(this.props.loginData);
-    console.log(this.props.userData);
-    return (
-      <div>
-        <div className="container mt-5">
-          {this.props.products.map((item) => {
-            return (
-              <div
-                className="card mb-3"
-                style={{ width: "1000px", height: "200px" }}
-              >
-                <div className="row g-0">
-                  <div className="col-md-4">
-                    <span
-                      className="close-icon"
-                      onClick={() => this.handleDelete(item.id)}
-                    >
-                      <AiOutlineClose className="fa-2x" />
-                    </span>
-
-                    <img
-                      src={item.image}
-                      className="img rounded-start"
-                      style={{ width: "75%", height: "75%" }}
-                      alt="..."
-                    />
-                  </div>
-                  <div className="col-md-8">
-                    <div className="card-body">
-                      <h5 className="card-title">{item.ProductName}</h5>
-                      <p className="card-text">{item.Brand}</p>
-                      <p className="card-text">
-                        <small className="text-muted">
-                          Last updated 3 mins ago
-                        </small>
-                      </p>
-
-                      <div className="d-flex mt-3 ">
-                        <button
-                          className="btn btn-primary rounded-0"
-                          type="button"
-                          onClick={this.decrease}
-                        >
-                          -
-                        </button>
-                        <input
-                          type="text"
-                          className="form-control bg-white text-center rounded-0"
-                          id="width"
-                          readOnly
-                          value={this.state.count}
-                        />
-                        <button
-                          className="btn btn-primary rounded-0"
-                          type="button"
-                          onClick={this.increase}
-                        >
-                          +
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    );
-  }
+  
+    // console.log(fetchLoginUser());
+    // console.log(props.userData);
+   
+   return(
+       <div className="row">
+           <div className="col-md-12">
+           <table className="table">
+               <thead>
+                   <tr>
+                       <th></th>
+                       <th>Name</th>
+                       <th>Image</th>
+                       <th>Price</th>
+                       <th>Quantity</th>
+                       <th>Total Price</th>
+                   </tr>
+               </thead>
+               <tbody>
+               {
+                   ListCart.map((item,key)=>{
+                       return(
+                           <tr key={key}>    
+                           <td><span className="text-danger" onClick={()=>DeleteCart(key)}>X</span></td>
+                           <td>{item.ProductName}</td>
+                           <td><img src={item.image} style={{width:'100px',height:'80px'}}/></td>
+                           <td>{item.price} $</td>
+                           <td>
+                                   <span className="btn btn-primary" style={{margin:'2px'}} onClick={()=>DecreaseQuantity(key)}>-</span>
+                                   <span className="btn btn-info">{item.quantity}</span>
+                                   <span className="btn btn-primary" style={{margin:'2px'}} onClick={()=>IncreaseQuantity(key)}>+</span>
+                           </td>
+                           <td>{ TotalPrice(item.price,item.quantity)} $</td>
+                       </tr>
+                       )
+                   })
+                       
+               }
+               <tr>
+                   <td colSpan="5">Total Carts</td>
+                   <td>{Number(TotalCart).toLocaleString('en-US')} $</td>
+               </tr>
+               </tbody>
+             
+           </table>
+           </div>
+       </div>
+   )
+}
+const mapStateToProps = state =>{
+ //  console.log(state)
+   return{
+       items:state.todoProduct,
+       userData: state.userData,
+      products: state.allProducts,
+   }
 }
 
-const mapToStateProps = (state) => {
-  return {
-    userData: state.userData,
-    products: state.allProducts,
-  };
-};
+export default connect(mapStateToProps,{IncreaseQuantity,DecreaseQuantity,DeleteCart,fetchLoginUser})(AddtoCart)
 
-export default connect(mapToStateProps, { fetchLoginUser, fetchProductsbyId })(
-  AddtoCart
-);
+  
+ 

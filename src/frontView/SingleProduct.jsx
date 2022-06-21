@@ -1,7 +1,9 @@
 import axios from "axios";
 import React from "react";
+import { connect } from "react-redux";
 // import { useState, useEffect } from "react";
 import { BsFillEyeFill, BsFillCartFill } from "react-icons/bs";
+import { fetchProducts, AddCart } from "../Actions/index";
 import { Link } from "react-router-dom";
 // import AddtoCart from "./AddtoCart";
 
@@ -12,7 +14,7 @@ function SingleProduct(props) {
   // const [all, setAll] = useState(true)
 
   const handleAddCart = async (id) => {
-    // setItemId((prev)=>([...prev, id]))
+  // setItemId((prev)=>([...prev, id]))
     cart.push(id);
     var res = await axios({
       method: "patch",
@@ -21,10 +23,11 @@ function SingleProduct(props) {
         addcart: cart,
       },
     });
+
+    props.AddCart(props)
     console.log(res.data);
 
   };
-  console.log(props.id);
 
   return (
     <div>
@@ -72,11 +75,11 @@ function SingleProduct(props) {
               <span
                 className="fw-bolder fs-6 btn-clr"
                 onClick={() => {
-                  handleAddCart(props.id);
+                  // props.AddCart(props);
+                  handleAddCart(props.id)
                 }}
               >
-                {" "}
-                Add To Cart
+              Add To Cart
               </span>
             </Link>
           </div>
@@ -87,4 +90,14 @@ function SingleProduct(props) {
   );
 }
 
-export default SingleProduct;
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchProducts: () => dispatch(fetchProducts()),
+    AddCart: (props) => dispatch(AddCart(props)),
+  };
+}
+
+// export default SingleProduct;
+export default connect(mapDispatchToProps, { fetchProducts, AddCart })(
+  SingleProduct
+);

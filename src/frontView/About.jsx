@@ -35,11 +35,11 @@ function About(props) {
         ))}
         {/* </select> */}
       </label>
-{props.products.map((item)=>{
+{/* {props.products.map((item)=>{
   return(
     console.log(item)
   )
-})}
+})} */}
       <SingeProductShow  />
     </div>
   );
