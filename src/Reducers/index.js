@@ -99,7 +99,7 @@ function todoProduct(state = initialProduct, action) {
             let carts = {
               id: action.payload.id,
               quantity: 1,
-              Productname:action.payload.ProductName,
+              ProductName:action.payload.ProductName,
               image: action.payload.image,
               price: action.payload.price
             }

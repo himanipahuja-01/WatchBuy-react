@@ -25,9 +25,10 @@ function SingleProduct(props) {
     });
 
     props.AddCart(props)
-    console.log(res.data);
+    // console.log(res.data)
 
   };
+  // console.log(props);
 
   return (
     <div>
@@ -84,7 +85,7 @@ function SingleProduct(props) {
             </Link>
           </div>
         </div>
-        {/* <AddtoCart id={props.id} /> */}
+        {/* <AddtoCart id ={props.id} /> */}
       </div>
     </div>
   );

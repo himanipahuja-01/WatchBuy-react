@@ -39,6 +39,8 @@ function Login(props) {
     props.fetchLoginUser(loginData)
   };
 
+
+  // console.log(props.userData)
   return (
     <div>
       <div className="container">
