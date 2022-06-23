@@ -90,12 +90,12 @@ export const fetchProducts = () => async (dispatch) => {
   });
 };
 
-export const fetchProductsbyId = (id) => async(dispatch) => {
+export const fetchProductsbyColor = (color) => async(dispatch) => {
   const response = await axios.get(
-    `http://localhost:5000/products?id=${id}`
+    `http://localhost:5000/products?color=${color}`
   );
   return dispatch({
-    type: "FETCH_PRODUCTS_BY_ID",
+    type: "FETCH_PRODUCTS_BY_COLOR",
     payload: response.data
   });
 };

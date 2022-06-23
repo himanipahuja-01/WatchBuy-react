@@ -5,7 +5,10 @@ import { Link } from "react-router-dom";
 function Navigation(props) {
   return (
     <div>
-      <nav className="navbar navbar-expand-md navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <Link className="navbar-brand" to="/">
+          {/* <img src=""/> */}
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -19,7 +22,7 @@ function Navigation(props) {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarsExample04">
-          <ul className="navbar-nav mr-auto">
+          <ul className="navbar-nav me-auto mb-2 mb-md-0">
             <li className="nav-item active">
               <Link className="nav-link" to = "/">
                Home
@@ -54,8 +57,9 @@ function Navigation(props) {
               </Link>
             </li>
           </ul>
-          <form className="form-inline my-2 my-md-0">
-            <input className="form-control" type="text" placeholder="Search" />
+          <form className="d-flex">
+            <input className="form-control me-2" type="text" placeholder="Search" />
+            {/* <button class="btn btn-outline-success me-2" type="submit">Search</button> */}
           </form>
         </div>
       </nav>

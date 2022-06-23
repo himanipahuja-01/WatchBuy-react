@@ -81,7 +81,10 @@ const allProductsReducer = (state = [], action) => {
   if (action.type === "FETCH_PRODUCTS_BY_CAT") {
     return action.payload;
   }
-  if (action.type === "FETCH_PRODUCTS_BY_ID") {
+  if (action.type === "FETCH_PRODUCTS_BY_BRAND") {
+    return action.payload;
+  }
+  if (action.type === "FETCH_PRODUCTS_BY_COLOR") {
     return action.payload;
   }
 

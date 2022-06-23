@@ -166,6 +166,14 @@ class AddProducts extends Component {
 
                     <Field
                       className="form-control mb-3"
+                      name="color"
+                      component="input"
+                      type="text"
+                      placeholder="color"
+                    />
+
+                    <Field
+                      className="form-control mb-3"
                       name="price"
                       component="input"
                       type="number"
@@ -173,14 +181,6 @@ class AddProducts extends Component {
                     />
 
                     <input type="file" onChange={this.onChange} />
-
-                    <Field
-                      className="form-control mb-3"
-                      name="SubCategory"
-                      component="input"
-                      type="text"
-                      placeholder="Sub Category"
-                    />
 
                     {this.state.formValues.map((element, index) => (
                       <div className="input-group mb-3" key={index}>
@@ -241,7 +241,6 @@ class AddProducts extends Component {
                   <th>Product Name</th>
                   <th>Brand</th>
                   <th>Price</th>
-                  <th>SubCategory</th>
                 </tr>
               </thead>
               <tbody>
@@ -251,8 +250,7 @@ class AddProducts extends Component {
                       {/* <td>{cat.categoryName}</td> */}
                       <td>{item.ProductName}</td>
                       <td>{item.Brand}</td>
-                      <td>{item.price}</td>
-                      <td>{item.SubCategory}</td>
+                      <td>Rs.{item.price}</td>
 
                       <td>
                         <Link

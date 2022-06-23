@@ -83,21 +83,21 @@ function ProductDescription(props) {
                 <div className="carousel-item active" data-bs-interval="10000">
                   <img
                     src={data.image}
-                    className="d-block w-100"
+                    className="d-block w-100 p-4"
                     alt="..."
                   />
                 </div>
                 <div className="carousel-item" data-bs-interval="2000">
                   <img
                     src={data.image}
-                    className="d-block w-100"
+                    className="d-block w-100 p-4"
                     alt="..."
                   />
                 </div>
                 <div className="carousel-item">
                   <img
                     src={data.image}
-                    className="d-block w-100"
+                    className="d-block w-100 p-4"
                     alt="..."
                   />
                 </div>
@@ -130,6 +130,7 @@ function ProductDescription(props) {
           </div>
           <div className="col-lg-7">
             <h2>{data.ProductName}</h2>
+            <h4 className="text-secondary">{data.Brand}</h4>
             <div className="text-danger d-inline">
               <span className="fa-1x m-1">
                 <BsStarFill />
@@ -148,7 +149,7 @@ function ProductDescription(props) {
               </span>
               <p className="m-1 d-inline">(50 reviews)</p>
             </div>
-            <h2 className="mt-4">{data.price}</h2>
+            <h2 className="mt-4">Rs.{data.price}</h2>
             <p className="text-secondary">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
               commodi repellat praesentium excepturi facilis dolore aspernatur

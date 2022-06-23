@@ -11,6 +11,7 @@ import { connect } from "react-redux";
 // import { AiOutlineClose } from "react-icons/ai";
 
 var cart = [];
+ 
 var cart1 = [];
 
 function AddtoCart({
@@ -23,6 +24,8 @@ function AddtoCart({
 }) {
   fetchLoginUser();
   console.log(userData[0].addcart);
+
+
 
   //   console.log(items)
   let ListCart = [];
@@ -38,13 +41,13 @@ function AddtoCart({
 
   const IncreaseAdd = async (key, id) => {
     //   cart.push(id);
-
-    cart1.push(id);
+    cart1.push(id)
+    cart.push(cart1[0])
     var res = await axios({
       method: "patch",
       url: "http://localhost:5000/user/1",
       data: {
-        addcart: cart1,
+        addcart: cart,
       },
     });
     IncreaseQuantity(key);

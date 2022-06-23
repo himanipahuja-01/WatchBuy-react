@@ -54,3 +54,27 @@
   top: 5px;
   cursor: pointer;
 }
+
+.card{
+  height: 500px;
+  width: 270px;
+}
+
+.color{
+  background-image: linear-gradient(to right, #d9c7c7, #7b81aa);
+  /* background-color: hsl(0, 0%, 90%); */
+  transition: background-color 300ms;
+}
+
+.wishlist{
+  position: absolute;
+  top: 380px;
+  right: 16px;
+}
+
+.size{
+  width: 270px;
+  height: 350px;
+}
+
+
