@@ -75,7 +75,7 @@ console.log(data);
                     component="input"
                     type="text"
                     placeholder="Product Name"
-                    value={data.ProductName}
+                    value={data.productname}
                         onChange={handlechange}
                   />
 
@@ -85,7 +85,7 @@ console.log(data);
                     component="input"
                     type="text"
                     placeholder="Brand"
-                    value={data.Brand}
+                    value={data.brand}
                         onChange={handlechange}
                   />
 
@@ -104,7 +104,7 @@ console.log(data);
                     name="Image"
                     component="input"
                     placeholder="Images"
-                    value={data.Image}
+                    value={data.image}
                     onChange={handlechange}
                   />
 

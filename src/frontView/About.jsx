@@ -23,7 +23,7 @@ function About(props) {
 
   return (
     <div>
-      <div className="container-fluid mt-5">
+      <div className="container-fluid mt-5 margin">
         <div className="row">
           <div className="col-lg-2 shadow">
             <label className="fw-bold mt-3 mb-1 text-center">FILTERS</label>

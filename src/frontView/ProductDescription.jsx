@@ -49,7 +49,7 @@ function ProductDescription(props) {
 
   return (
     <div>
-      <div className="container mt-5">
+      <div className="container mt-5 margin2">
         <div className="row">
           <div className="col-lg-5">
             <div
@@ -129,8 +129,8 @@ function ProductDescription(props) {
             </div>
           </div>
           <div className="col-lg-7">
-            <h2>{data.ProductName}</h2>
-            <h4 className="text-secondary">{data.Brand}</h4>
+            <h2>{data.productname}</h2>
+            <h4 className="text-secondary">{data.brand}</h4>
             <div className="text-danger d-inline">
               <span className="fa-1x m-1">
                 <BsStarFill />

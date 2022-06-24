@@ -102,9 +102,11 @@ function todoProduct(state = initialProduct, action) {
             let carts = {
               id: action.payload.id,
               quantity: 1,
-              ProductName:action.payload.ProductName,
+              productname:action.payload.productname,
               image: action.payload.image,
-              price: action.payload.price
+              price: action.payload.price,
+              color: action.payload.color,
+              brand: action.payload.brand
             }
             state.Cart.push(carts);
           }
@@ -122,9 +124,11 @@ function todoProduct(state = initialProduct, action) {
             let cart = {
               id: action.payload.id,
               quantity: 1,
-              ProductName: action.payload.ProductName,
+              productname: action.payload.productname,
               image: action.payload.image,
-              price: action.payload.price
+              price: action.payload.price,
+              color: action.payload.color,
+              brand: action.payload.brand
 
             }
             state.Cart.push(cart)

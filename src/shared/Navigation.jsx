@@ -7,7 +7,7 @@ function Navigation(props) {
     <div>
       <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
         <Link className="navbar-brand" to="/">
-          {/* <img src=""/> */}
+          <img src="images/logo2.png" className="image img"/>
         </Link>
         <button
           className="navbar-toggler"

@@ -35,7 +35,7 @@ function SingleProduct(props) {
         addcart: cart,
       },
     });
-
+console.log(props)
     props.AddCart(props);
     // console.log(res.data)
   };
@@ -43,19 +43,19 @@ function SingleProduct(props) {
 
   return (
     <div>
-      <div className="card mt-5">
-        <div className="card-header overflow-hidden size">
+      <div className="card mt-5 borderRou border-0">
+        <div className="card-header overflow-hidden size border-0 borderRou">
           <img
             src={props.image}
             style={{ width: "100%", height: "100%" }}
-            className="zoom img-fluid figure"
+            className="zoom img-fluid figure borderRou"
             alt="..."
           />
 
           <FaHeart className="fa-2x wishlist" style={style}  onClick={() => styleSheet("Red")}/>
         </div>
         <div className="card-body">
-          <h5 className="text-justify mb-3 text-center ">{props.name}</h5>
+          <h5 className="text-justify mb-3 text-center ">{props.productname}</h5>
           <h6 className="text-truncate mb-3 text-center text-secondary">
             {props.Brand}
           </h6>
@@ -67,7 +67,7 @@ function SingleProduct(props) {
           </div>
         </div>
 
-        <div className="card-footer d-flex justify-content-between bg-light border">
+        <div className="card-footer d-flex justify-content-between bg-light border-0 borderRou">
           {/* <p className="me-auto btn">{<BsFillEyeFill />}View All</p> */}
 
           <Link
@@ -77,14 +77,14 @@ function SingleProduct(props) {
             <i className="text-primary mr-1"></i>
             <BsFillEyeFill
               className="h3 pe-2"
-              style={{ color: "coral" }}
+              style={{ color: "#c0392b" }}
             />{" "}
             <span className="fw-bolder fs-6 btn-clr"> View Detail</span>
           </Link>
           {/* <p className="ms-5 btn">{<BsFillCartFill />}View All</p> */}
           <Link to="" className="btn btn-sm text-dark p-0">
             <i className="text-primary mr-1"></i>
-            <BsFillCartFill className="h3 pe-2" style={{ color: "coral" }} />
+            <BsFillCartFill className="h3 pe-2" style={{ color: "#c0392b" }} />
             <span
               className="fw-bolder fs-6 btn-clr"
               onClick={() => {

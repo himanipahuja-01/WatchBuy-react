@@ -150,7 +150,7 @@ class AddProducts extends Component {
 
                     <Field
                       className="form-control mb-3"
-                      name="ProductName"
+                      name="productname"
                       component="input"
                       type="text"
                       placeholder="Product Name"
@@ -158,7 +158,7 @@ class AddProducts extends Component {
 
                     <Field
                       className="form-control mb-3"
-                      name="Brand"
+                      name="brand"
                       component="input"
                       type="text"
                       placeholder="Brand"
@@ -248,8 +248,8 @@ class AddProducts extends Component {
                   return (
                     <tr key={item.id}>
                       {/* <td>{cat.categoryName}</td> */}
-                      <td>{item.ProductName}</td>
-                      <td>{item.Brand}</td>
+                      <td>{item.productname}</td>
+                      <td>{item.brand}</td>
                       <td>Rs.{item.price}</td>
 
                       <td>
