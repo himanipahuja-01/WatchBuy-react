@@ -12,9 +12,7 @@ import BlankCart from "./BlankCart";
 
 // import { AiOutlineClose } from "react-icons/ai";
 
-var cart = [];
-
-var cart1 = [];
+// var cart = [];
 
 function AddtoCart({
   items,
@@ -34,35 +32,63 @@ function AddtoCart({
   Object.keys(items.Cart).forEach(function (item) {
     TotalCart += items.Cart[item].quantity * items.Cart[item].price;
     ListCart.push(items.Cart[item]);
-    cart.push(items.Cart[item].id);
   });
-  function TotalPrice(price, tonggia) {
-    return Number(price * tonggia).toLocaleString("en-US");
-  }
 
-  const IncreaseAdd = async (key, id) => {
-    //   cart.push(id);
-    cart1.push(id);
-    cart.push(cart1[0]);
+  // function TotalPrice(price, tonggia) {
+  //   return Number(price * tonggia).toLocaleString("en-US");
+  // }
+
+  // var cart1 = [];
+
+  // const IncreaseAdd = async (key, id) => {
+  //     cart.push(id);
+  //   cart1.push(id);
+  //   // console.log(cart1);
+  //   cart.push(cart1[0]);
+  //   // console.log(cart1)
+  //   cart1 = [];
+  //   console.log(cart1);
+  //   var res = await axios({
+  //     method: "patch",
+  //     url: "http://localhost:5000/user/1",
+  //     data: {
+  //       addcart: cart,
+  //     },
+  //   });
+  //   ;
+  // };
+
+  // const DecreaseDel = async (key) => {
+  //   var data = userData[0].addcart.splice();
+  //   var res = await axios({
+  //     method: "patch",
+  //     url: "http://localhost:5000/user/1",
+  //     data: {
+  //       addcart: cart,
+  //     },
+  //   });
+  //   DecreaseQuantity(key);
+  // };
+var cart = [];
+  const DeleteClick = async (key) => {
+    DeleteCart(key);
+
+    Object.keys(items.Cart).forEach(function (item) {
+      TotalCart += items.Cart[item].quantity * items.Cart[item].price;
+      cart.push(items.Cart[item].id);
+      console.log(items.Cart[item])
+    });
+  
+    console.log(cart)
+
     var res = await axios({
       method: "patch",
-      url: "http://localhost:5000/user/1",
+      url: `http://localhost:5000/user/1`,
       data: {
         addcart: cart,
       },
     });
-    IncreaseQuantity(key);
-  };
-
-  const DecreaseDel = async (key) => {
-    cart.pop();
-    var res = await axios({
-      method: "patch",
-      url: "http://localhost:5000/user/1",
-      data: {
-        addcart: cart,
-      },
-    });
+    // DeleteCart()
     DecreaseQuantity(key);
   };
 
@@ -96,14 +122,15 @@ function AddtoCart({
               <div className="container py-5">
                 <div className="row d-flex justify-content-center my-4">
                   <div className="col-lg-8">
-                    {ListCart.map((item, key) => {
-                      console.log(item);
-                      return (
-                        <>
-                          <div className="border mb-4 borderRou bg-white">
-                            <div className="card-header py-3 borderRou">
-                              <h5 className="mb-0">Cart - 2 items</h5>
-                            </div>
+                    <div className="border mb-4 borderRou bg-white">
+                      <div className="card-header py-3 borderRou">
+                        <h5 className="mb-0">Cart - {items.numberCart}</h5>
+                      </div>
+                      {ListCart.map((item, key) => {
+                        console.log(item);
+                        // console.log(key);
+                        return (
+                          <>
                             <div className="card-body">
                               <div className="row">
                                 <div className="col-lg-3 col-md-12 mb-4 mb-lg-0">
@@ -139,7 +166,7 @@ function AddtoCart({
                                     className="btn btn-primary btn-sm me-1 mb-2"
                                     data-mdb-toggle="tooltip"
                                     title="Remove item"
-                                    onClick={() => DeleteCart(key)}
+                                    onClick={() => DeleteClick(key)}
                                   >
                                     <i className="fas fa-trash"></i>
                                   </button>
@@ -161,7 +188,7 @@ function AddtoCart({
                                     <button
                                       className="btn btn-primary me-2 px-3"
                                       style={{ height: "40px" }}
-                                      onClick={() => DecreaseDel(key)}
+                                      onClick={() => DecreaseQuantity(key)}
                                     >
                                       <i className="fas fa-minus p-0"></i>
                                     </button>
@@ -189,23 +216,24 @@ function AddtoCart({
                                     <button
                                       className="btn btn-primary px-3 ms-2"
                                       style={{ height: "40px" }}
-                                      onClick={() => IncreaseAdd(key, item.id)}
+                                      onClick={() => IncreaseQuantity(key)}
                                     >
                                       <i className="fas fa-plus"></i>
                                     </button>
                                   </div>
                                   <h6 className="text-start text-lg-center me-1">
                                     Price- Rs.{item.price}
+                                    {/* {TotalPrice(item.price, item.quantity)} */}
                                   </h6>
                                 </div>
                               </div>
 
                               {/* <hr className="my-4"/> */}
                             </div>
-                          </div>
-                        </>
-                      );
-                    })}
+                          </>
+                        );
+                      })}
+                    </div>
 
                     <div className="border mb-4 borderRou bg-white">
                       <div className="card-body">

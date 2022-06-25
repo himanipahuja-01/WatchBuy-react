@@ -6,6 +6,7 @@ import Carousel from "./Carousel";
 function Home(props) {
   return (
     <>
+    
       <Carousel />
       <User />
       {/* <CreateUser form="user" /> */}

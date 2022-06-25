@@ -7,7 +7,7 @@ function Navigation(props) {
     <div>
       <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
         <Link className="navbar-brand" to="/">
-          <img src="images/logo2.png" className="image img"/>
+          <img src="images/vv.png" className="image img ms-2"/>
         </Link>
         <button
           className="navbar-toggler"
@@ -58,7 +58,9 @@ function Navigation(props) {
             </li>
           </ul>
           <form className="d-flex">
-            <input className="form-control me-2" type="text" placeholder="Search" />
+            <Link to="/Search">
+            <input className="form-control me-2" type="text" placeholder="Search"  />
+            </Link>
             {/* <button class="btn btn-outline-success me-2" type="submit">Search</button> */}
           </form>
         </div>

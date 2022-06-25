@@ -73,7 +73,7 @@ export const fetchProductsByCat = (categoryName) => async (dispatch) => {
 
 export const fetchProductsbybrand = (Brand) => async (dispatch) => {
   const response = await axios.get(
-    `http://localhost:5000/products?Brand=${Brand}`
+    `http://localhost:5000/products?brand=${Brand}`
   );
   return dispatch({
     type: "FETCH_PRODUCTS_BY_BRAND",

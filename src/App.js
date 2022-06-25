@@ -21,6 +21,7 @@ import ProductEdit from "./frontView/ProductEdit";
 import ProductDescription from "./frontView/ProductDescription";
 import CreateUser from "./CreateUser";
 import AddtoCart from "./frontView/AddtoCart";
+import Search from "./frontView/Search";
 // import MovieList from "./MovieList";
 
 function App() {
@@ -29,6 +30,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home />}></Route>
+          <Route path="/search" element={<Search />}></Route>
+          
           <Route path="/about" element={<About />}></Route>
           <Route path="/Login" element={<Login />}></Route>
           <Route path="/CreateUser" element={<CreateUser />}></Route>

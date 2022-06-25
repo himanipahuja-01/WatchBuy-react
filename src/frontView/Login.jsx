@@ -6,7 +6,7 @@ import { fetchLoginUser } from "../Actions/index";
 import { connect } from "react-redux";
 // import AddtoCart from "./AddtoCart";
 // import SingleProduct from './SingleProduct';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login(props) {
   const [loginData, setLoginData] = useState({
@@ -108,8 +108,8 @@ function Login(props) {
             <button type="submit" className="btn btn-primary btn-lg"
               // style="padding-left: 2.5rem; padding-right: 2.5rem;"
               >Login</button>
-            <p className="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
-                className="link-danger">Register</a></p>
+            <p className="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <Link to="/CreateUser"
+                className="link-danger">Register</Link></p>
           </div>
 
         </form>

@@ -18,12 +18,12 @@ function SingleProduct(props) {
   const [color, setColor] = useState("#ffcccc");
   const styleSheet = () => {
     setColor("#c0392b");
-  }
+  };
 
-    const style = {
-      color: `${color}`,
-      cursor: "pointer"
-    };
+  const style = {
+    color: `${color}`,
+    cursor: "pointer",
+  };
 
   const handleAddCart = async (id) => {
     // setItemId((prev)=>([...prev, id]))
@@ -35,7 +35,7 @@ function SingleProduct(props) {
         addcart: cart,
       },
     });
-console.log(props)
+    console.log(props);
     props.AddCart(props);
     // console.log(res.data)
   };
@@ -52,12 +52,18 @@ console.log(props)
             alt="..."
           />
 
-          <FaHeart className="fa-2x wishlist" style={style}  onClick={() => styleSheet("Red")}/>
+          <FaHeart
+            className="fa-2x wishlist"
+            style={style}
+            onClick={() => styleSheet("Red")}
+          />
         </div>
         <div className="card-body">
-          <h5 className="text-justify mb-3 text-center ">{props.productname}</h5>
+          <h5 className="text-justify mb-3 text-center ">
+            {props.productname}
+          </h5>
           <h6 className="text-truncate mb-3 text-center text-secondary">
-            {props.Brand}
+            {props.brand}
           </h6>
           <div className="d-flex justify-content-center p-2">
             <h6 className="ms-0 btn fs-4">Rs.{props.price}</h6>
