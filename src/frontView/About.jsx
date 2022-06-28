@@ -4,6 +4,7 @@ import SingeProductShow from "./SingeProductShow";
 import { connect } from "react-redux";
 import { fetchProductsByCat, fetchProductsbybrand, fetchProductsbyColor } from "../Actions/index";
 
+
 function About(props) {
   var categoryName = ["Men", "Women", "Kids"];
   var Brand = ["Fastrack", "Fossil", "Titan","Daniel Klein"];
@@ -24,6 +25,8 @@ function About(props) {
   return (
     <div>
       <div className="container-fluid mt-5 margin">
+        {/* <div className="position-relative"></div> */}
+        
         <div className="row">
           <div className="col-lg-2 shadow">
             <label className="fw-bold mt-3 mb-1 text-center">FILTERS</label>
@@ -93,7 +96,9 @@ function About(props) {
 
           </div>
 
-          <div className="col-lg-10 color">
+          <div className="col-lg-10 positioning"> 
+          
+          {/* U CAN give color cls to give the background color */}
             <SingeProductShow />
           </div>
         </div>

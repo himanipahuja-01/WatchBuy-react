@@ -17,7 +17,13 @@ export default class Offers extends Component {
      
       <div>
 
-<Form
+<div className="conatiner-fluid">
+        <div className="row m-3">
+        <div className="col-lg-3">
+            </div>
+            <div className="col-lg-9">
+
+            <Form
           onSubmit={onSubmit}
           subscription={{ submitting: true, pristine: true }}
         >
@@ -161,7 +167,10 @@ export default class Offers extends Component {
               </div>
             </form>
           )}
-        </Form>
+    </Form>
+            </div>
+            </div>
+            </div>
 
       </div>
     )

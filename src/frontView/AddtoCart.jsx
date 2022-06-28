@@ -72,7 +72,7 @@ function AddtoCart({
 var cart = [];
   const DeleteClick = async (key) => {
     DeleteCart(key);
-
+    debugger
     Object.keys(items.Cart).forEach(function (item) {
       TotalCart += items.Cart[item].quantity * items.Cart[item].price;
       cart.push(items.Cart[item].id);
@@ -110,6 +110,8 @@ var cart = [];
   // console.log(products[0]);
   // console.log(items);
   console.log(items);
+
+
 
   return (
     <>

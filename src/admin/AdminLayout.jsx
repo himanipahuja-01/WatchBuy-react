@@ -1,5 +1,5 @@
 import { Outlet, NavLink } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import React, { Component } from "react";
 
 class AdminLayout extends Component {
@@ -7,69 +7,71 @@ class AdminLayout extends Component {
     return (
       <div>
         <div>
-        <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarsExample04"
-            aria-controls="navbarsExample04"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
+        <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <Link className="navbar-brand" to="/">
+          {/* <img src="images/vv.png" className="image img ms-2"/> */}
+        </Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarsExample04"
+          aria-controls="navbarsExample04"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
 
-          <div className="collapse navbar-collapse" id="navbarsExample04">
-            <ul className="navbar-nav mr-auto">
-              <li className="nav-item active">
-                <NavLink className="nav-link" activeclassname = "active" to="/">
-                  Home
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" activeclassname = "active" to="/About">
-                  Watches
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" activeclassname = "active" to="/Admin/Dashboard">
-                  Mobiles
-                </NavLink>
-              </li>
+        <div className="collapse navbar-collapse" id="navbarsExample04">
+          <ul className="navbar-nav me-auto mb-2 mb-md-0">
+            <li className="nav-item active">
+              <Link className="nav-link" to = "/">
+               Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to ="/About">
+                Watches
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to ="/Admin/Dashboard">
+                Mobiles
+              </Link>
+            </li>
 
-              <li className="nav-item">
-                <NavLink className="nav-link" activeclassname = "active" to="/AddtoCart">
-                  AddtoCart
-                </NavLink>
-              </li>
+            <li className="nav-item">
+              <Link className="nav-link" to ="/AddtoCart">
+                AddtoCart
+              </Link>
+            </li>
 
-              <li className="nav-item">
-                <NavLink className="nav-link" activeclassname = "active" to="/Login">
-                  Login
-                </NavLink>
-              </li>
+            <li className="nav-item">
+              <Link className="nav-link" to ="/Login">
+                Login
+              </Link>
+            </li>
 
-              <li className="nav-item">
-                <NavLink className="nav-link" activeclassname = "active" to="/CreateUser">
-                  Register
-                </NavLink>
-              </li>
-            </ul>
-            <form className="form-inline my-2 my-md-0">
-              <input
-                className="form-control"
-                type="text"
-                placeholder="Search"
-              />
-            </form>
-          </div>
-        </nav>
+            <li className="nav-item">
+              <Link className="nav-link" to ="/CreateUser">
+                Register
+              </Link>
+            </li>
+          </ul>
+          <form className="d-flex">
+            <Link to="/Search">
+            <input className="form-control me-2" type="text" placeholder="Search"  />
+            </Link>
+            {/* <button class="btn btn-outline-success me-2" type="submit">Search</button> */}
+          </form>
+        </div>
+      </nav>
         </div>
 
-        <div className="container-fluid">
+        <div className="container-fluid mt-5">
           <div className="row">
-            <div className="col-lg-3 gx-0">
+            <div className="col-lg-3 gx-0 position-fixed">
             <div
               className="flex-column flex-shrink-0 p-3 text-white bg-dark"
               style={{ height: 'calc(150vh - 56px)' }}
@@ -158,7 +160,7 @@ class AdminLayout extends Component {
            
 
             </div>
-            <div className="col-lg-9">
+            <div className="col-lg-12">
               <div>
             <Outlet />
             </div>

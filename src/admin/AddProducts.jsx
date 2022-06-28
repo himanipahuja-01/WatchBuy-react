@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { Form, Field } from "react-final-form";
 import { connect } from "react-redux";
 import { fetchProducts, fetchCategories } from "../Actions/index";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 class AddProducts extends Component {
   constructor(props) {
@@ -68,11 +68,11 @@ class AddProducts extends Component {
     axios.post("http://localhost:5000/products", values);
   };
 
-  deleteUser = async (id) => {
-    if (window.confirm("Are you sure you want to delete this user?")) {
-      axios.delete(`http://localhost:5000/products/${id}`);
-    }
-  };
+  // deleteUser = async (id) => {
+  //   if (window.confirm("Are you sure you want to delete this user?")) {
+  //     axios.delete(`http://localhost:5000/products/${id}`);
+  //   }
+  // };
 
   base64code = "";
   onChange = (e) => {
@@ -99,15 +99,17 @@ class AddProducts extends Component {
   render() {
     return (
       <div className="conatiner-fluid">
-        <div className="row m-0">
-          <div className="col-lg-6">
+        <div className="row">
+        <div className="col-lg-3">
+            </div>
+          <div className="col-lg-9">
             <Form onSubmit={this.onSubmit}>
               {({ handleSubmit, form, submitting, pristine, values }) => (
                 <form
                   onSubmit={handleSubmit}
-                  className="form-group row mt-4 mb-4"
+                  className="form m-4 p-4"
                 >
-                  <div className="offset-2 col-sm-8 offset-2">
+                  <div className="">
                     <div className="mb-3">
                       <div className="btn-group w-100">
                         <button
@@ -233,12 +235,12 @@ class AddProducts extends Component {
             </Form>
           </div>
 
-          <div className="col-lg-6">
+          {/* <div className="col-lg-6">
             <table className="table">
               <thead>
-                <tr>
+                <tr> */}
                   {/* <th>Category Name</th> */}
-                  <th>Product Name</th>
+                  {/* <th>Product Name</th>
                   <th>Brand</th>
                   <th>Price</th>
                 </tr>
@@ -248,7 +250,7 @@ class AddProducts extends Component {
                   return (
                     <tr key={item.id}>
                       {/* <td>{cat.categoryName}</td> */}
-                      <td>{item.productname}</td>
+                      {/* <td>{item.productname}</td>
                       <td>{item.brand}</td>
                       <td>Rs.{item.price}</td>
 
@@ -258,20 +260,20 @@ class AddProducts extends Component {
                           to={`ProductEdit/${item.id}`}
                         >
                           Edit
-                        </Link>
-                        <button
+                        </Link> */}
+                        {/* <button
                           className="btn btn-danger"
                           onClick={() => this.deleteUser(item.id)}
                         >
                           Delete
                         </button>
                       </td>
-                    </tr>
-                  );
+                    </tr> */}
+                  {/* );
                 })}
               </tbody>
             </table>
-          </div>
+          </div> */} 
         </div>
         {/* <ViewProducts /> */}
       </div>

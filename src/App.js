@@ -49,7 +49,8 @@ function App() {
           <Route path="/admin/viewproducts" element={<ViewProducts />}></Route>
           <Route path="/admin/addcategory" element={<AddCategory />}></Route>
           <Route
-            path="/admin/addproducts/ProductEdit/:id"
+            path="/admin/viewproducts/ProductEdit/:id"
+            // path="/admin/addproducts/ProductEdit/:id"
             element={<ProductEdit />}
           ></Route>
         </Route>

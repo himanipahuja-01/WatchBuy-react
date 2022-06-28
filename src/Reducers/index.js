@@ -98,7 +98,7 @@ function todoProduct(state = initialProduct, action) {
           ...state
         }
         case "ADD_CART":
-          if(state.numberCart == 0){
+          if(state.numberCart === 0){
             let carts = {
               id: action.payload.id,
               quantity: 1,

@@ -7,6 +7,7 @@ import { BsFillEyeFill, BsFillCartFill } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa";
 import { fetchProducts, AddCart } from "../Actions/index";
 import { Link } from "react-router-dom";
+import { TiTick } from "react-icons/ti";
 // import AddtoCart from "./AddtoCart";
 
 var cart = [];
@@ -25,6 +26,20 @@ function SingleProduct(props) {
     cursor: "pointer",
   };
 
+  const [show, setShow] = useState("hidden");
+
+  const styling = {
+    visibility: `${show}`,
+  };
+
+  const styled = () => {
+    setShow("visible");
+  };
+
+  const hide = () => {
+    setShow("hidden");
+  };
+
   const handleAddCart = async (id) => {
     // setItemId((prev)=>([...prev, id]))
     cart.push(id);
@@ -38,12 +53,24 @@ function SingleProduct(props) {
     console.log(props);
     props.AddCart(props);
     // console.log(res.data)
+    styled();
+
+    setTimeout(() => {
+      hide();
+    }, 1000);
   };
   // console.log(props);
 
   return (
     <div>
-      <div className="card mt-5 borderRou border-0">
+      <div
+        className="bg-dark sizing ms-auto text-white mt-5 shadow rounded"
+        style={styling}
+      >
+        Added to Cart
+        <TiTick />
+      </div>
+      <div className="card mt-5 borderRou border-0 shadow-lg">
         <div className="card-header overflow-hidden size border-0 borderRou">
           <img
             src={props.image}

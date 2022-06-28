@@ -29,12 +29,21 @@ class AddCategory extends Component {
     }
   };
 
+  
+  deleteUser = async (id) => {
+    if (window.confirm("Are you sure you want to delete this category?")) {
+      axios.delete(`http://localhost:5000/categories/${id}`);
+    }
+  };
+
   render() {
     return (
       <div>
         <div className="container-fluid">
-        <div className="row m-0">
-        <div className="col-lg-6">
+        <div className="row m-2">
+        <div className="col-lg-3">
+            </div>
+        <div className="col-lg-5">
           <h2>Add Category</h2>
 
           <Form
@@ -44,7 +53,7 @@ class AddCategory extends Component {
           >
             {({ handleSubmit, form, submitting, pristine }) => (
               <form onSubmit={handleSubmit} className="p-5 shadow">
-                <div className="form-group">
+                {/* <div className="form-group">
                   <label className="form-label fw-bold">Upload Image</label>
                   <Field
                     name="image"
@@ -53,15 +62,15 @@ class AddCategory extends Component {
                     className="form-control"
                   />
                   <button className="btn btn-primary mt-3">Upload</button>
-                </div>
+                </div> */}
 
                 <div className="form-group mt-3">
-                  <label className="form-label fw-bold">Product Name</label>
+                  <label className="form-label fw-bold">Category Name</label>
                   <Field
                     name="categoryName"
                     component="input"
                     type="text"
-                    placeholder="product name"
+                    placeholder="Category name"
                     className="form-control"
                   />
                 </div>
@@ -183,7 +192,7 @@ class AddCategory extends Component {
           </Form>
         </div>
 
-        <div className="col-lg-6">
+        <div className="col-lg-4">
           <h2>Add Categories</h2>
 
           <table className="table">
@@ -199,8 +208,8 @@ class AddCategory extends Component {
                   <tr key={cat.id}>
                     <td>{cat.categoryName}</td>
                     <td>
-                      <button className="btn btn-info">Edit</button>
-                      <button className="btn btn-info">Delete</button>
+                      {/* <button className="btn btn-info">Edit</button> */}
+                      <button className="btn btn-danger mx-1"  onClick={() => this.deleteUser(cat.id)}>Delete</button>
                     </td>
                   </tr>
                 );

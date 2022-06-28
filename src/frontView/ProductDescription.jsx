@@ -47,6 +47,21 @@ function ProductDescription(props) {
     });
   };
 
+  const handleAddCart = async (id) => {
+    // setItemId((prev)=>([...prev, id]))
+    // cart.push(id);
+    var res = await axios({
+      method: "patch",
+      url: "http://localhost:5000/user/1",
+      data: {
+        addcart: [id],
+      },
+    });
+    console.log(props);
+    props.AddCart(props);
+    // console.log(res.data)
+  };
+
   return (
     <div>
       <div className="container mt-5 margin2">
@@ -291,6 +306,10 @@ function ProductDescription(props) {
               <button
                 className="btn btn-primary ms-3 p-1 rounded-0"
                 type="button"
+                onClick={() => {
+                  // props.AddCart(props);
+                  handleAddCart(data.id);
+                }}
               >
                 {<BsFillCartFill />}Add to cart
               </button>

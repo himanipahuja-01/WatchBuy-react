@@ -1,11 +1,55 @@
-import React from 'react';
+import React from "react";
+import { connect } from "react-redux";
+import { fetchUser } from "../Actions";
 
 function User(props) {
-    return (
-        <div>
-            <h1>user</h1>
+
+    // console.log(props.user)
+
+  return (
+    <div>
+      <div className="container-fluid">
+        <div className="row m-2">
+          <div className="col-lg-3"></div>
+          <div className="col-lg-9">
+
+          <table class="table table-striped table-hover border mt-4 table-danger">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Username</th>
+      <th scope="col">Email</th>
+      <th scope="col">Password</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    {props.user.map((user)=>{
+        return(
+            <tr key={user.id}>
+            <th scope="row">{user.id}</th>
+            <td>{user.username}</td>
+            <td>{user.email}</td>
+            <td>{user.password}</td>
+          </tr>
+        )
+    })}
+  
+ 
+  </tbody>
+</table>
+
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
-export default User;
+const mapStateToProps = (state, ownProps) => {
+    return {
+      user: state.userData,
+    };
+  };
+  
+  export default connect(mapStateToProps, { fetchUser })(User);
