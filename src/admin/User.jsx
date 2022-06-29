@@ -1,11 +1,15 @@
 import React from "react";
+import { useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchUser } from "../Actions";
 
 function User(props) {
 
     // console.log(props.user)
-
+    useEffect(()=>{
+      props.fetchUser()
+    },[])
+  
   return (
     <div>
       <div className="container-fluid">

@@ -160,7 +160,7 @@ class AdminLayout extends Component {
            
 
             </div>
-            <div className="col-lg-12">
+            <div className="col-lg-12 widthset">
               <div>
             <Outlet />
             </div>

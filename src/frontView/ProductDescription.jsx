@@ -3,7 +3,7 @@ import {
   BsStarHalf,
   BsStar,
   BsStarFill,
-  BsFillCartFill,
+  // BsFillCartFill,
   BsFacebook,
   BsTwitter,
   BsLinkedin,
@@ -13,9 +13,12 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useEffect } from "react";
+import AddButton from "./AddButton";
+import IncreDecre from "./IncreDecre";
+import { IncreaseQuantity, DecreaseQuantity } from "../Actions/index";
 
 function ProductDescription(props) {
-  const [state, setState] = useState(1);
+  // const [state, setState] = useState(1);
   const [data, setData] = useState({});
 
   let { id } = useParams();
@@ -31,36 +34,36 @@ function ProductDescription(props) {
     fetchData();
   }, []);
 
-  const increase = () => {
-    return setState((prev) => {
-      return prev + 1;
-    });
-  };
+  // const increase = () => {
+  //   return setState((prev) => {
+  //     return prev + 1;
+  //   });
+  // };
 
-  const decrease = () => {
-    return setState((prev) => {
-      if (prev > 0) {
-        return prev - 1;
-      } else {
-        return 0;
-      }
-    });
-  };
+  // const decrease = () => {
+  //   return setState((prev) => {
+  //     if (prev > 0) {
+  //       return prev - 1;
+  //     } else {
+  //       return 0;
+  //     }
+  //   });
+  // };
 
-  const handleAddCart = async (id) => {
+  // const handleAddCart = async (id) => {
     // setItemId((prev)=>([...prev, id]))
     // cart.push(id);
-    var res = await axios({
-      method: "patch",
-      url: "http://localhost:5000/user/1",
-      data: {
-        addcart: [id],
-      },
-    });
-    console.log(props);
-    props.AddCart(props);
+    // var res = await axios({
+    //   method: "patch",
+    //   url: "http://localhost:5000/user/1",
+    //   data: {
+    //     addcart: [id],
+    //   },
+    // });
+    // console.log(props);
+    // props.AddCart(props);
     // console.log(res.data)
-  };
+  // };
 
   return (
     <div>
@@ -172,7 +175,7 @@ function ProductDescription(props) {
               nihil quo perspiciatis magni!
             </p>
 
-            <div className="d-inline">
+            {/* <div className="d-inline">
               <p className="d-inline me-2 fw-bold">Sizes: </p>
               <div className="form-check form-check-inline">
                 <input
@@ -225,7 +228,7 @@ function ProductDescription(props) {
                 />
                 <label className="form-check-label">L</label>
               </div>
-            </div>
+            </div> */}
 
             <div className="mt-3">
               <p className="d-inline me-2 fw-bold">Colors: </p>
@@ -283,7 +286,8 @@ function ProductDescription(props) {
             </div>
 
             <div className="d-flex mt-3 ">
-              <button
+              {/* <IncreDecre/> */}
+              {/* <button
                 className="btn btn-primary rounded-0"
                 type="button"
                 onClick={decrease}
@@ -302,8 +306,8 @@ function ProductDescription(props) {
                 onClick={increase}
               >
                 +
-              </button>
-              <button
+              </button> */}
+              {/* <button
                 className="btn btn-primary ms-3 p-1 rounded-0"
                 type="button"
                 onClick={() => {
@@ -312,6 +316,9 @@ function ProductDescription(props) {
                 }}
               >
                 {<BsFillCartFill />}Add to cart
+              </button> */}
+              <button className="btn border border-1 btn-outline-light">
+              <AddButton id = {data.id} productDetails={data}/>
               </button>
             </div>
 

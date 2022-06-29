@@ -9,6 +9,9 @@ import {
 } from "../Actions/index";
 import { connect } from "react-redux";
 import BlankCart from "./BlankCart";
+import IncreDecre from "./IncreDecre";
+import { Link } from "react-router-dom";
+// import { useEffect } from "react";
 
 // import { AiOutlineClose } from "react-icons/ai";
 
@@ -23,10 +26,13 @@ function AddtoCart({
   userData,
   AddCart,
 }) {
+  // props
   fetchLoginUser();
+  // console.log(props)
+
   // console.log(userData[0].addcart);
 
-  console.log(items);
+  // console.log(items);
   let ListCart = [];
   let TotalCart = 0;
   Object.keys(items.Cart).forEach(function (item) {
@@ -69,17 +75,16 @@ function AddtoCart({
   //   });
   //   DecreaseQuantity(key);
   // };
-var cart = [];
+  var cart = [];
   const DeleteClick = async (key) => {
     DeleteCart(key);
-    debugger
     Object.keys(items.Cart).forEach(function (item) {
       TotalCart += items.Cart[item].quantity * items.Cart[item].price;
       cart.push(items.Cart[item].id);
-      console.log(items.Cart[item])
+      console.log(items.Cart[item]);
     });
-  
-    console.log(cart)
+
+    console.log(cart);
 
     var res = await axios({
       method: "patch",
@@ -111,8 +116,6 @@ var cart = [];
   // console.log(items);
   console.log(items);
 
-
-
   return (
     <>
       {
@@ -123,13 +126,53 @@ var cart = [];
             <section className="h-100 gradient-custom margin">
               <div className="container py-5">
                 <div className="row d-flex justify-content-center my-4">
+            
                   <div className="col-lg-8">
+
+                  {/* <div className="accordion mb-5 borderRou" id="accordionExample">
+                    <div className="accordion-item">
+                      <h2 className="accordion-header" id="headingThree">
+                        <button
+                          className="accordion-button collapsed"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#collapseThree"
+                          aria-expanded="false"
+                          aria-controls="collapseThree"
+                        >
+                          Accordion Item #3
+                        </button>
+                      </h2>
+                      <div
+                        id="collapseThree"
+                        className="accordion-collapse collapse"
+                        aria-labelledby="headingThree"
+                        data-bs-parent="#accordionExample"
+                      >
+                        <div className="accordion-body">
+                          <strong>
+                            This is the third item's accordion body.
+                          </strong>{" "}
+                          It is hidden by default, until the collapse plugin
+                          adds the appropriate classes that we use to style each
+                          element. These classes control the overall appearance,
+                          as well as the showing and hiding via CSS transitions.
+                          You can modify any of this with custom CSS or
+                          overriding our default variables. It's also worth
+                          noting that just about any HTML can go within the{" "}
+                          <code>.accordion-body</code>, though the transition
+                          does limit overflow.
+                        </div>
+                      </div>
+                    </div>
+                  </div> */}
+
                     <div className="border mb-4 borderRou bg-white">
                       <div className="card-header py-3 borderRou">
                         <h5 className="mb-0">Cart - {items.numberCart}</h5>
                       </div>
-                      {ListCart.map((item, key) => {
-                        console.log(item);
+                      {ListCart.map((item, index) => {
+                        // console.log(item.quantity);
                         // console.log(key);
                         return (
                           <>
@@ -168,7 +211,7 @@ var cart = [];
                                     className="btn btn-primary btn-sm me-1 mb-2"
                                     data-mdb-toggle="tooltip"
                                     title="Remove item"
-                                    onClick={() => DeleteClick(key)}
+                                    onClick={() => DeleteClick(index)}
                                   >
                                     <i className="fas fa-trash"></i>
                                   </button>
@@ -183,7 +226,7 @@ var cart = [];
                                 </div>
 
                                 <div className="col-lg-4 col-md-6 mb-4 mb-lg-0">
-                                  <div
+                                  {/* <div
                                     className="d-flex mb-4"
                                     style={{ width: "10px" }}
                                   >
@@ -191,38 +234,44 @@ var cart = [];
                                       className="btn btn-primary me-2 px-3"
                                       style={{ height: "40px" }}
                                       onClick={() => DecreaseQuantity(key)}
-                                    >
-                                      <i className="fas fa-minus p-0"></i>
-                                    </button>
+                                    > */}
+                                  {/* <i className="fas fa-minus p-0"></i>
+                                    </button> */}
 
-                                    <div
+                                  {/* <div
                                       className="form-outline"
                                       style={{ width: "50px" }}
-                                    >
-                                      <input
+                                    > */}
+                                  {/* <input
                                         id="form1"
                                         min="0"
                                         name="quantity"
                                         value={item.quantity}
                                         // type="number"
                                         className="form-control"
-                                      />
-                                      <h6
+                                      /> */}
+                                  {/* <h6
                                         className="form-label mt-2"
                                         htmlFor="form1"
                                       >
                                         Quantity
                                       </h6>
-                                    </div>
+                                    </div> */}
 
-                                    <button
+                                  {/* <button
                                       className="btn btn-primary px-3 ms-2"
                                       style={{ height: "40px" }}
                                       onClick={() => IncreaseQuantity(key)}
-                                    >
-                                      <i className="fas fa-plus"></i>
-                                    </button>
-                                  </div>
+                                    > */}
+                                  {/* <i className="fas fa-plus"></i>
+                                    </button> */}
+                                  {/* </div> */}
+
+                                  <IncreDecre
+                                    ind={index}
+                                    // quantity={item.quantity}
+                                    data={item}
+                                  />
                                   <h6 className="text-start text-lg-center me-1">
                                     Price- Rs.{item.price}
                                     {/* {TotalPrice(item.price, item.quantity)} */}
@@ -304,12 +353,13 @@ var cart = [];
                           </li>
                         </ul>
 
-                        <button
+                        <Link
                           type="button"
                           className="btn btn-primary btn-lg btn-block"
+                          to="/AddtoCart/addressform"
                         >
                           Go to checkout
-                        </button>
+                        </Link>
                       </div>
                     </div>
                   </div>

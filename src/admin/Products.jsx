@@ -7,18 +7,22 @@ class Products extends Component {
 
     return (
 <div>
-<div className="container-fluid mt-3 bacimage">
-  <div className="row">
+<div className="container-fluid mt-3">
+  <div className="row hih">
     <div className="col-lg-3">
 
     </div>
-    <div className="col-lg-4">
-      <Link to = "/admin/addproducts">Add Product</Link>
+    <div className="col-lg-9 bacimage">
+      <div className="row">
+    <div className="col-lg-6 text-center">
+      <Link to = "/admin/addproducts" className="text-decoration-none">Add Product</Link>
 
      
     </div>
-    <div className="col-lg-4">
-      <Link to='/admin/viewproducts'>View Products</Link>
+    <div className="col-lg-6 text-center">
+      <Link to='/admin/viewproducts' className="text-decoration-none">View Products</Link>
+    </div>
+    </div>
     </div>
   </div>
 </div> 

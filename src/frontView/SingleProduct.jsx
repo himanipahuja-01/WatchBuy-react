@@ -1,16 +1,17 @@
-import axios from "axios";
+// import axios from "axios";
 import React from "react";
 import { connect } from "react-redux";
 import { useState } from "react";
 // import { useState, useEffect } from "react";
-import { BsFillEyeFill, BsFillCartFill } from "react-icons/bs";
+import { BsFillEyeFill } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa";
 import { fetchProducts, AddCart } from "../Actions/index";
 import { Link } from "react-router-dom";
-import { TiTick } from "react-icons/ti";
+// import { TiTick } from "react-icons/ti";
+import AddButton from "./AddButton";
 // import AddtoCart from "./AddtoCart";
 
-var cart = [];
+// var cart = [];
 
 function SingleProduct(props) {
   // const [itemId, setItemId] = useState([]);
@@ -26,50 +27,50 @@ function SingleProduct(props) {
     cursor: "pointer",
   };
 
-  const [show, setShow] = useState("hidden");
+  // const [show, setShow] = useState("hidden");
 
-  const styling = {
-    visibility: `${show}`,
-  };
+  // const styling = {
+  //   visibility: `${show}`,
+  // };
 
-  const styled = () => {
-    setShow("visible");
-  };
+  // const styled = () => {
+  //   setShow("visible");
+  // };
 
-  const hide = () => {
-    setShow("hidden");
-  };
+  // const hide = () => {
+  //   setShow("hidden");
+  // };
 
-  const handleAddCart = async (id) => {
+  // const handleAddCart = async (id) => {
     // setItemId((prev)=>([...prev, id]))
-    cart.push(id);
-    var res = await axios({
-      method: "patch",
-      url: "http://localhost:5000/user/1",
-      data: {
-        addcart: cart,
-      },
-    });
-    console.log(props);
-    props.AddCart(props);
-    // console.log(res.data)
-    styled();
+    // cart.push(id);
+    // var res = await axios({
+    //   method: "patch",
+    //   url: "http://localhost:5000/user/1",
+    //   data: {
+    //     addcart: cart,
+    //   },
+    // });
+  //   console.log(props);
+  //   props.AddCart(props);
+  //   // console.log(res.data)
+  //   styled();
 
-    setTimeout(() => {
-      hide();
-    }, 1000);
-  };
+  //   setTimeout(() => {
+  //     hide();
+  //   }, 1000);
+  // };
   // console.log(props);
 
   return (
     <div>
-      <div
+      {/* <div
         className="bg-dark sizing ms-auto text-white mt-5 shadow rounded"
         style={styling}
       >
         Added to Cart
         <TiTick />
-      </div>
+      </div> */}
       <div className="card mt-5 borderRou border-0 shadow-lg">
         <div className="card-header overflow-hidden size border-0 borderRou">
           <img
@@ -115,7 +116,7 @@ function SingleProduct(props) {
             <span className="fw-bolder fs-6 btn-clr"> View Detail</span>
           </Link>
           {/* <p className="ms-5 btn">{<BsFillCartFill />}View All</p> */}
-          <Link to="" className="btn btn-sm text-dark p-0">
+          {/* <Link to="" className="btn btn-sm text-dark p-0">
             <i className="text-primary mr-1"></i>
             <BsFillCartFill className="h3 pe-2" style={{ color: "#c0392b" }} />
             <span
@@ -127,7 +128,8 @@ function SingleProduct(props) {
             >
               Add To Cart
             </span>
-          </Link>
+          </Link> */}
+          <AddButton id={props.id} productDetails = {props}/>
         </div>
       </div>
       {/* <AddtoCart id ={props.id} /> */}
