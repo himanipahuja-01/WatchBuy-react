@@ -4,7 +4,7 @@ import { BsFillCartFill } from "react-icons/bs";
 import { useState } from "react";
 import { TiTick } from "react-icons/ti";
 import { connect } from "react-redux";
-import { fetchProducts, AddCart } from "../Actions/index";
+import { fetchProducts, AddCart, fetchLoginUser } from "../Actions/index";
 import axios from "axios";
 
 var cart = [];
@@ -24,6 +24,9 @@ function AddButton(props) {
     setShow("hidden");
   };
 
+  props.fetchLoginUser()
+  // console.log(props.userData)
+
   const handleAddCart = async (id) => {
     // setItemId((prev)=>([...prev, id]))
     cart.push(id);
@@ -34,7 +37,7 @@ function AddButton(props) {
         addcart: cart,
       },
     });
-    console.log(props.productDetails);
+    // console.log(props.productDetails);
     props.AddCart(props.productDetails);
     // console.log(res.data)
     styled();
@@ -75,13 +78,22 @@ function AddButton(props) {
 
 // export default AddButton;
 
+
+// const mapStateToProps = (state) => {
+//    console.log(state)
+//   return {
+//     userData: state.userData,
+//       };
+// }
+
 function mapDispatchToProps(dispatch) {
   return {
     fetchProducts: () => dispatch(fetchProducts()),
     AddCart: (props) => dispatch(AddCart(props)),
+   
   };
 }
 
-export default connect(mapDispatchToProps, { fetchProducts, AddCart })(
+export default connect(mapDispatchToProps,  { fetchProducts, AddCart ,fetchLoginUser})(
   AddButton
 );

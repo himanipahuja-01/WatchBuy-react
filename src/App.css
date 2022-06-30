@@ -155,3 +155,31 @@
   left: 100px;
   
 } */
+
+/* @media (min-width: 1025px) {
+  .h-custom {
+  height: 100vh !important;
+  }
+  } */
+
+  .heights{
+    height: 150px;
+    transition: box-shadow .3s;
+  }
+
+
+  .heights:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+    cursor: pointer;
+  }
+
+  .button {
+    background-color: white;
+    color: black;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: rgb(244, 239, 239);
+  }
