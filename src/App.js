@@ -23,6 +23,7 @@ import CreateUser from "./CreateUser";
 import AddtoCart from "./frontView/AddtoCart";
 import Search from "./frontView/Search";
 import AddressForm from "./frontView/AddressForm";
+import AddCoupons from "./admin/AddCoupons";
 // import AddressEdit from "./frontView/AddressEdit";
 // import MovieList from "./MovieList";
 
@@ -47,6 +48,7 @@ function App() {
           <Route path="/admin/user" element={<User />}></Route>
           <Route path="/admin/products" element={<Products />}></Route>
           <Route path="/admin/offer" element={<Offers />}></Route>
+          <Route path="/admin/offer/coupons" element={<AddCoupons />}></Route>
           <Route path="/admin/orders" element={<Orders />}></Route>
           <Route path="/admin/addproducts" element={<AddProducts />}></Route>
           <Route path="/admin/viewproducts" element={<ViewProducts />}></Route>

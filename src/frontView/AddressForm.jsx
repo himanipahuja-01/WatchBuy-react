@@ -23,7 +23,7 @@ function AddressForm(props) {
     address: "",
     location: "",
   });
-  const[editData, setEditData] = useState({})
+  const[editData, setEditData] = useState()
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -275,26 +275,25 @@ function AddressForm(props) {
                         {/* <FiEdit className="fs-6 p-0"/> */}
                         {/* Edit
                                   </button> */}
-                        <button
+                        {/* <button
                           type="button"
                           className="btn border button ms-3 px-2"
                           data-bs-toggle="modal"
-                          data-bs-target="#exampleModal1"
+                          data-bs-target={`exampleModal${item.id}`}
                           data-bs-whatever="@edit"
                           // to={`/AddtoCart/addressform/Addressedit/${item.id}`}
-                          onClick={()=>{setEditData(item)}}
                         >
                           Edit
-                        </button>
-                        <div
+                        </button> */}
+                        {/* <div
                           className="modal fade"
-                          id="exampleModal1"
+                          id={`exampleModal${item.id}`}
                           tabIndex="-1"
                           aria-labelledby="exampleModalLabel"
                           aria-hidden="true"
-                        >
-                          <AddressEdit index={key} item={item} editData = {editData} />
-                        </div>
+                        > */}
+                          <AddressEdit index={key} item={item}/>
+                        {/* </div> */}
                       </div>
                     </div>
                   </div>

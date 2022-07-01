@@ -4,16 +4,21 @@ import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { getAddress } from "../Actions/index";
 
-function AddressEdit({ item, index, editData }) {
+function AddressEdit({ item, index }) {
   // const [data, setData] = useState({});
 
-  const [data, setData] = useState(editData);
+  const [data, setData] = useState(item);
 
+  // useEffect(()=>{
+  //   setData(editData);
+  // },[])
+
+  console.log(data)
   // let {id} = useParams();
 
   // console.log(index);
   console.log(item.id);
-  console.log(editData);
+  // console.log(editData);
 
   const handlechange = (e) => {
     const name = e.target.name;
@@ -22,8 +27,8 @@ function AddressEdit({ item, index, editData }) {
     // console.log(name)
     // console.log(value)
 
-    setData((data) => ({
-      ...data,
+    setData((editData) => ({
+      ...editData,
       [name]: value,
     }));
   };
@@ -82,23 +87,23 @@ function AddressEdit({ item, index, editData }) {
 
   return (
     <div>
-      {/* <div
+      <div
         type="button"
         className="btn border button ms-3 px-2"
         data-bs-toggle="modal"
-        data-bs-target="#exampleModal1"
+        data-bs-target={`#exampleModal${item.id}`}
         data-bs-whatever="@edit"
       >
         Edit
-      </div> */}
+      </div>
 
-      {/* <div
+      <div
         className="modal fade"
-        id="exampleModal1"
+        id={`exampleModal${item.id}`}
         tabIndex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
-      > */}
+      >
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-header">
