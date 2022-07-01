@@ -144,3 +144,10 @@ export function DecreaseQuantity(payload){
     payload
   }
 }
+
+export function getAddress(payload){
+  return {
+    type: 'GET_ADDRESS',
+    payload
+  }
+}

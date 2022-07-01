@@ -4,24 +4,26 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { connect } from "react-redux";
 import { useState } from "react";
-import { fetchLoginUser, AddCart } from "../Actions/index";
+import { fetchLoginUser, AddCart, getAddress } from "../Actions/index";
+import AddressEdit from "./AddressEdit";
+// import { FiEdit } from 'react-icons/fi';
 // import { useEffect } from "react";
 
 var address = [];
 
 function AddressForm(props) {
-  
-
   console.log(props.items.Cart);
   //   console.log(props.userData[0].id);
 
   const [addressData, setAddressData] = useState({
+    id: "",
     contact: "",
     mobile: "",
     pincode: "",
     address: "",
     location: "",
   });
+  const[editData, setEditData] = useState({})
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -42,7 +44,7 @@ function AddressForm(props) {
     // console.log(addressData);
     address.push(addressData);
     // console.log(address);
-    var res = await axios({
+    var response = await axios({
       method: "patch",
       url: "http://localhost:5000/user/1",
       data: {
@@ -62,9 +64,23 @@ function AddressForm(props) {
     ListCart.push(props.items.Cart[item]);
   });
 
+  const [show, setShow] = useState("hidden");
+  // const [padding, setpadding] = useState('0px');
+
+  const styling = {
+    visibility: `${show}`,
+    // marginBottom: `${padding}`
+  };
+
+  const styled = () => {
+    setShow("visible");
+    // setpadding('300px');
+  };
+
   var date = new Date();
   date.setDate(date.getDate() + 3);
   //   console.log(date);
+  // console.log(padding)
 
   return (
     <div>
@@ -183,9 +199,14 @@ function AddressForm(props) {
                   ADD NEW ADDRESS
                 </div>
               </div>
-              {props.userData[0].addressData.map((item) => {
+              {props.userData[0].addressData.map((item, key) => {
                 return (
-                  <div className="card mb-3 w-100 heights">
+                  <div
+                    className="card mb-3 w-100 heights"
+                    onClick={() => {
+                      styled();
+                    }}
+                  >
                     <div className="card-body">
                       <div className="d-flex justify-content-between">
                         <div className="d-flex flex-row align-items-center">
@@ -208,13 +229,13 @@ function AddressForm(props) {
                           <div className="ms-3">
                             <h5>{item.contact}</h5>
                             <p className="small mb-0">{item.mobile}</p>
-                            <h5 className="fw-normal mb-0 text-wrap">
+                            <h5 className="fw-normal mb-0 p-0 text-wrap">
                               {item.location}, {item.address}, {item.pincode}
                             </h5>
                           </div>
                         </div>
-                        <div className="d-flex flex-row align-items-center">
-                          {/* <div style={{ width: "50px" }}>
+                        {/* <div className="d-flex flex-row align-items-center"> */}
+                        {/* <div style={{ width: "50px" }}>
                         </div>
                         <div style={{ width: "80px" }}>
                           <h5 className="mb-0">{item.pincode}</h5>
@@ -223,8 +244,56 @@ function AddressForm(props) {
                           href="#!"
                           // style="color: #cecece;"
                         > */}
-                          <i className="fas fa-trash-alt"></i>
-                          {/* </a> */}
+
+                        {/* </a> */}
+                        {/* </div> */}
+                      </div>
+                      {/* <div className="d-flex justify-content-between">
+                      <i className="fas fa-trash-alt"></i>
+                      <FiEdit/>
+                      </div> */}
+                      <div
+                        className="col-lg-5 col-md-6 ms-3 d-flex mt-3"
+                        style={styling}
+                      >
+                        {/* <p>Size: M</p> */}
+                        <button
+                          type="button"
+                          className="btn border button ms-3 px-2"
+                          data-mdb-toggle="tooltip"
+                          title="Remove item"
+                        >
+                          {/* <i className="fas fa-trash"></i> */}
+                          Remove
+                        </button>
+                        {/* <button
+                                    type="button"
+                                    className="btn border button p-1 ms-3 px-2"
+                                    data-mdb-toggle="tooltip"
+                                    title="Move to the wish list"
+                                  > */}
+                        {/* <FiEdit className="fs-6 p-0"/> */}
+                        {/* Edit
+                                  </button> */}
+                        <button
+                          type="button"
+                          className="btn border button ms-3 px-2"
+                          data-bs-toggle="modal"
+                          data-bs-target="#exampleModal1"
+                          data-bs-whatever="@edit"
+                          // to={`/AddtoCart/addressform/Addressedit/${item.id}`}
+                          onClick={()=>{setEditData(item)}}
+                        >
+                          Edit
+                        </button>
+                        <div
+                          className="modal fade"
+                          id="exampleModal1"
+                          tabIndex="-1"
+                          aria-labelledby="exampleModalLabel"
+                          aria-hidden="true"
+                        >
+                          <AddressEdit index={key} item={item} editData = {editData} />
                         </div>
                       </div>
                     </div>
@@ -452,4 +521,5 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   fetchLoginUser,
   AddCart,
+  getAddress,
 })(AddressForm);

@@ -90,7 +90,6 @@ function mapDispatchToProps(dispatch) {
   return {
     fetchProducts: () => dispatch(fetchProducts()),
     AddCart: (props) => dispatch(AddCart(props)),
-   
   };
 }
 

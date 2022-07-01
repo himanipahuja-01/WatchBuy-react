@@ -10,6 +10,10 @@ const initialProduct = {
   products: [],
 };
 
+const initialAddress = {
+  Address: []
+};
+
 const moviesReducer = () => {
   return [
     {
@@ -179,6 +183,23 @@ function todoProduct(state = initialProduct, action) {
 // //   }
 // // }
 
+
+function todoAddress(state = initialAddress, action) {
+   if(action.type === "GET_ADDRESS") {
+            let addresses = {
+              id: action.payload.id,
+              contact:action.payload.contact,
+              mobile: action.payload.mobile,
+              pincode: action.payload.pincode,
+              address: action.payload.address,
+              location: action.payload.location
+            }
+            state.Address.push(addresses);
+          }
+          return state;
+      }
+ 
+
 const reducers = combineReducers({
   movies: moviesReducer,
   selectedMovie: selectedMovieReducer,
@@ -187,7 +208,8 @@ const reducers = combineReducers({
   finalForm: finalFormReducer,
   allCategory: allCategoryReducer,
   allProducts: allProductsReducer,
-  todoProduct: todoProduct
+  todoProduct: todoProduct,
+  todoAddress: todoAddress
 });
 
 export default reducers;

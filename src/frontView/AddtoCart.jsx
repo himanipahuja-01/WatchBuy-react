@@ -84,7 +84,7 @@ function AddtoCart({
       console.log(items.Cart[item]);
     });
 
-    console.log(cart);
+    console.log(items);
 
     var res = await axios({
       method: "patch",

@@ -163,14 +163,16 @@
   } */
 
   .heights{
-    height: 150px;
+    height: auto;
     transition: box-shadow .3s;
+    /* padding-bottom: 170px; */
   }
 
 
   .heights:hover {
     box-shadow: 0 0 11px rgba(33,33,33,.2); 
     cursor: pointer;
+   
   }
 
   .button {
