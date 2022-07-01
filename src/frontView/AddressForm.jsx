@@ -64,16 +64,16 @@ function AddressForm(props) {
     ListCart.push(props.items.Cart[item]);
   });
 
-  const [show, setShow] = useState("hidden");
+  const [show, setShow] = useState("none");
   // const [padding, setpadding] = useState('0px');
 
   const styling = {
-    visibility: `${show}`,
+    display: show,
     // marginBottom: `${padding}`
   };
 
   const styled = () => {
-    setShow("visible");
+    setShow("flex");
     // setpadding('300px');
   };
 
@@ -253,7 +253,7 @@ function AddressForm(props) {
                       <FiEdit/>
                       </div> */}
                       <div
-                        className="col-lg-5 col-md-6 ms-3 d-flex mt-3"
+                        className="col-lg-5 col-md-6 ms-3 mt-3"
                         style={styling}
                       >
                         {/* <p>Size: M</p> */}
