@@ -1,13 +1,12 @@
 import React from 'react';
 import { Form, Field } from "react-final-form";
+import axios from "axios";
 
 function AddCoupons(props) {
 
-    const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
-    const onSubmit = async (values) => {
-      await sleep(300);
-      window.alert(JSON.stringify(values, 0, 2));
+      const onSubmit = async (values) => {
+        axios.post("http://localhost:5000/coupons", values);
+        alert("Done");
     };
 
     return (
@@ -67,7 +66,7 @@ function AddCoupons(props) {
                       </label>
 
                       <Field
-                        name="date"
+                        name="dateStart"
                         component="input"
                         type="date"
                         placeholder="date"
@@ -81,7 +80,7 @@ function AddCoupons(props) {
                       </label>
 
                       <Field
-                        name="date"
+                        name="dateEnd"
                         component="input"
                         type="date"
                         placeholder="date"

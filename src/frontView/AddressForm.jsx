@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 import { useState } from "react";
 import { fetchLoginUser, AddCart, getAddress } from "../Actions/index";
 import AddressEdit from "./AddressEdit";
+import { BsTags } from "react-icons/bs";
+import ShowCoupon from "../admin/ShowCoupon";
 
 var address = [];
 
@@ -247,6 +249,22 @@ function AddressForm(props) {
                       </div>
                     );
                   })}
+                </div>
+
+                <div>
+                  <h6 className="ms-3 mt-2">COUPONS</h6>
+                  <div className="d-flex justify-content-between align-items-center ms-3 mb-3">
+                    <BsTags className="fs-3" />
+                    <p className="me-auto p-2">Apply Coupons</p>
+                    {/* <button
+                      type="button"
+                      className="btn border button px-2 me-4"
+                      title="Apply"
+                    >
+                      Apply
+                    </button> */}
+                    <ShowCoupon/>
+                  </div>
                 </div>
 
                 <div className="bg-white">

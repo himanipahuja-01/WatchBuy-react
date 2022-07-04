@@ -59,6 +59,13 @@ const fetchUserReducer = (state = [], action) => {
   return state;
 };
 
+const allCouponsReducer = (state = [], action) => {
+  if (action.type === "FETCH_COUPON") {
+    return action.payload;
+  }
+return state;
+};
+
 const finalFormReducer = (state = {}, action = {}) => {
   switch (action.type) {
     case UPDATE_FORM_STATE:
@@ -209,7 +216,8 @@ const reducers = combineReducers({
   allCategory: allCategoryReducer,
   allProducts: allProductsReducer,
   todoProduct: todoProduct,
-  todoAddress: todoAddress
+  todoAddress: todoAddress,
+  allCoupons: allCouponsReducer
 });
 
 export default reducers;
