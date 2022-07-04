@@ -8,7 +8,7 @@ function ShowCoupon({ fetchCoupon, allCoupons }) {
     fetchCoupon();
   }, []);
 
-  console.log(allCoupons);
+//   console.log(allCoupons);
 
   return (
     <div>
@@ -62,9 +62,15 @@ function ShowCoupon({ fetchCoupon, allCoupons }) {
                   return (
                     <>
                       <div className="card-body">
-                        <h5 className="card-title text-danger">
+                      <div class="form-check">
+  <input className="form-check-input " type="checkbox" value="" id="flexCheckDefault"/>
+  <label className="form-check-label card-title text-danger fs-3">
+  {item.couponName}
+  </label>
+</div>
+                        {/* <h5 className="card-title text-danger">
                           {item.couponName}
-                        </h5>
+                        </h5> */}
                         <p className="card-text">{item.save}</p>
                         <p className="card-text">{item.price}</p>
                         <p className="card-text">
