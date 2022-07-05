@@ -11,7 +11,7 @@ const initialProduct = {
 };
 
 const initialAddress = {
-  Address: []
+  Address: [],
 };
 
 const moviesReducer = () => {
@@ -63,7 +63,10 @@ const allCouponsReducer = (state = [], action) => {
   if (action.type === "FETCH_COUPON") {
     return action.payload;
   }
-return state;
+  if (action.type === "FETCH_COUPON_BY_ID") {
+    return action.payload;
+  }
+  return state;
 };
 
 const finalFormReducer = (state = {}, action = {}) => {
@@ -104,78 +107,75 @@ const allProductsReducer = (state = [], action) => {
 
 function todoProduct(state = initialProduct, action) {
   switch (action.type) {
-      case "GET_NUMBER_CART":
-        return{
-          ...state
-        }
-        case "ADD_CART":
-          if(state.numberCart === 0){
-            let carts = {
-              id: action.payload.id,
-              quantity: 1,
-              productname:action.payload.productname,
-              image: action.payload.image,
-              price: action.payload.price,
-              color: action.payload.color,
-              brand: action.payload.brand
-            }
-            state.Cart.push(carts);
+    case "GET_NUMBER_CART":
+      return {
+        ...state,
+      };
+    case "ADD_CART":
+      if (state.numberCart === 0) {
+        let carts = {
+          id: action.payload.id,
+          quantity: 1,
+          productname: action.payload.productname,
+          image: action.payload.image,
+          price: action.payload.price,
+          color: action.payload.color,
+          brand: action.payload.brand,
+        };
+        state.Cart.push(carts);
+      } else {
+        let check = false;
+        state.Cart.map((item, key) => {
+          if (item.id === action.payload.id) {
+            state.Cart[key].quantity++;
+            check = true;
           }
-          else{
-            let check = false;
-            state.Cart.map((item, key) =>{
-              if(item.id === action.payload.id){
-                state.Cart[key].quantity++;
-                check = true;
-              }
-            })
-      
+        });
 
-          if(!check){
-            let cart = {
-              id: action.payload.id,
-              quantity: 1,
-              productname: action.payload.productname,
-              image: action.payload.image,
-              price: action.payload.price,
-              color: action.payload.color,
-              brand: action.payload.brand
-
-            }
-            state.Cart.push(cart)
-          }
+        if (!check) {
+          let cart = {
+            id: action.payload.id,
+            quantity: 1,
+            productname: action.payload.productname,
+            image: action.payload.image,
+            price: action.payload.price,
+            color: action.payload.color,
+            brand: action.payload.brand,
+          };
+          state.Cart.push(cart);
         }
-        return{
-          ...state,
-          numberCart: state.numberCart+1
-        }
-        case "INCREASE_QUANTITY":
-          state.numberCart++
-          state.Cart[action.payload].quantity++;
+      }
+      return {
+        ...state,
+        numberCart: state.numberCart + 1,
+      };
+    case "INCREASE_QUANTITY":
+      state.numberCart++;
+      state.Cart[action.payload].quantity++;
 
-          return{
-            ...state
-          }
+      return {
+        ...state,
+      };
 
-          case "DECREASE_QUANTITY":
-            state.numberCart--
-            state.Cart[action.payload].quantity--;
-  
-            return{
-              ...state
-            }
+    case "DECREASE_QUANTITY":
+      state.numberCart--;
+      state.Cart[action.payload].quantity--;
 
-          case "DELETE_CART":
-            let quantity = state.Cart[action.payload].quantity;
-            return{
-              ...state,
-              numberCart: state.numberCart - quantity,
-              Cart: state.Cart.filter(item =>{
-                return item.id!== state.Cart[action.payload].id
-              })
-            }
-            default: 
-            return state;
+      return {
+        ...state,
+      };
+
+    case "DELETE_CART":
+      let quantity = state.Cart[action.payload].quantity;
+      return {
+        ...state,
+        numberCart: state.numberCart - quantity,
+        Cart: state.Cart.filter((item) => {
+          return item.id !== state.Cart[action.payload].id;
+        }),
+      };
+    default:
+      return state;
   }
 }
 
@@ -190,22 +190,20 @@ function todoProduct(state = initialProduct, action) {
 // //   }
 // // }
 
-
 function todoAddress(state = initialAddress, action) {
-   if(action.type === "GET_ADDRESS") {
-            let addresses = {
-              id: action.payload.id,
-              contact:action.payload.contact,
-              mobile: action.payload.mobile,
-              pincode: action.payload.pincode,
-              address: action.payload.address,
-              location: action.payload.location
-            }
-            state.Address.push(addresses);
-          }
-          return state;
-      }
- 
+  if (action.type === "GET_ADDRESS") {
+    let addresses = {
+      id: action.payload.id,
+      contact: action.payload.contact,
+      mobile: action.payload.mobile,
+      pincode: action.payload.pincode,
+      address: action.payload.address,
+      location: action.payload.location,
+    };
+    state.Address.push(addresses);
+  }
+  return state;
+}
 
 const reducers = combineReducers({
   movies: moviesReducer,
@@ -217,7 +215,7 @@ const reducers = combineReducers({
   allProducts: allProductsReducer,
   todoProduct: todoProduct,
   todoAddress: todoAddress,
-  allCoupons: allCouponsReducer
+  allCoupons: allCouponsReducer,
 });
 
 export default reducers;

@@ -3,10 +3,16 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { connect } from "react-redux";
 import { useState } from "react";
-import { fetchLoginUser, AddCart, getAddress } from "../Actions/index";
+import {
+  fetchLoginUser,
+  AddCart,
+  getAddress,
+  fetchCouponById
+} from "../Actions/index";
 import AddressEdit from "./AddressEdit";
 import { BsTags } from "react-icons/bs";
 import ShowCoupon from "../admin/ShowCoupon";
+import { useEffect } from "react";
 
 var address = [];
 
@@ -68,6 +74,12 @@ function AddressForm(props) {
 
   var date = new Date();
   date.setDate(date.getDate() + 3);
+
+  useEffect(() => {
+    props.fetchCouponById();
+  }, []);
+
+  console.log(props.allCoupons);
 
   return (
     <div>
@@ -263,7 +275,7 @@ function AddressForm(props) {
                     >
                       Apply
                     </button> */}
-                    <ShowCoupon/>
+                    <ShowCoupon />
                   </div>
                 </div>
 
@@ -302,8 +314,9 @@ function AddressForm(props) {
                       </div>
                       <span>
                         <strong>
-                          {Number(TotalCart + 150).toLocaleString("en-US")}
+                          {Number(TotalCart).toLocaleString("en-US")}
                         </strong>
+                        <p>{console.log(props.allCoupons)}</p>
                       </span>
                     </li>
 
@@ -330,6 +343,7 @@ const mapStateToProps = (state) => {
   return {
     items: state.todoProduct,
     userData: state.userData,
+    allCoupons: state.allCoupons,
   };
 };
 
@@ -337,4 +351,5 @@ export default connect(mapStateToProps, {
   fetchLoginUser,
   AddCart,
   getAddress,
+  fetchCouponById
 })(AddressForm);

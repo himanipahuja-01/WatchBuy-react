@@ -1,14 +1,31 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchCoupon } from "../Actions/index";
+import { fetchCoupon, fetchCouponById } from "../Actions/index";
 import { useEffect } from "react";
+import { TiTick } from "react-icons/ti";
+import { useState } from "react";
 
-function ShowCoupon({ fetchCoupon, allCoupons }) {
+ 
+  function ShowCoupon({ fetchCoupon, allCoupons ,fetchCouponById, fetchCouponId}) {
   useEffect(() => {
     fetchCoupon();
   }, []);
 
-//   console.log(allCoupons);
+  //   console.log(allCoupons);
+
+  const [show, setShow] = useState("white");
+
+  const styling = {
+    backgroundColor: show,
+  };
+
+  const styled = (id) => {
+    setShow("#d63031");
+    console.log(id)
+  // fetchCouponById(id)  
+  };
+
+  
 
   return (
     <div>
@@ -43,17 +60,17 @@ function ShowCoupon({ fetchCoupon, allCoupons }) {
               ></button>
             </div>
             <div className="modal-body">
-              <div className="card w-100 h-auto">
+              <div className="w-100 h-auto">
                 <div className="card-header">
-                  <div class="input-group">
+                  <div className="input-group">
                     <input
                       type="search"
-                      class="form-control rounded"
+                      className="form-control rounded"
                       placeholder="Search"
                       aria-label="Search"
                       aria-describedby="search-addon"
                     />
-                    <button type="button" class="btn btn-outline-danger">
+                    <button type="button" className="btn btn-outline-danger">
                       Check
                     </button>
                   </div>
@@ -61,28 +78,39 @@ function ShowCoupon({ fetchCoupon, allCoupons }) {
                 {allCoupons.map((item) => {
                   return (
                     <>
-                      <div className="card-body">
-                      <div class="form-check">
-  <input className="form-check-input " type="checkbox" value="" id="flexCheckDefault"/>
-  <label className="form-check-label card-title text-danger fs-3">
-  {item.couponName}
-  </label>
-</div>
+                      <div
+                        className="border mt-3 px-3 heights"
+                        onClick={() => {
+                          fetchCouponId(item.id);
+                        }}
+                      >
+                        <div className="d-flex align-items-center">
+                          <div
+                            className="form-check p-0 border border-danger m-1 sizes d-flex align-items-center"
+                            style={styling}
+                          >
+                            <TiTick className="fs-2 ms-auto text-white" />
+                          </div>
+                          <div>
+                            <label className="form-check-label card-title text-danger fs-3">
+                              {item.couponName}
+                            </label>
+                          </div>
+                        </div>
                         {/* <h5 className="card-title text-danger">
                           {item.couponName}
                         </h5> */}
-                        <p className="card-text">{item.save}</p>
-                        <p className="card-text">{item.price}</p>
-                        <p className="card-text">
+                        <p className="card-text m-1">{item.save}</p>
+                        <p className="card-text m-1">{item.price}</p>
+                        <p className="card-text m-1">
                           {item.dateStart} {item.dateEnd}
                         </p>
-                        <hr />
                       </div>
                     </>
                   );
                 })}
 
-                <div className="card-footer m-0">
+                <div className="card-footer mt-3">
                   <p>maximum savings : </p>
                   {/* <p>Rs.{item.save}</p> */}
                 </div>
@@ -103,6 +131,12 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {
-  fetchCoupon,
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchCouponId: (id) => dispatch(fetchCouponById(id)),
+  };
+}
+
+export default connect(mapDispatchToProps, mapStateToProps, {
+  fetchCoupon,fetchCouponById
 })(ShowCoupon);

@@ -50,6 +50,17 @@ export const fetchCoupon = () => async (dispatch) => {
   });
 };
 
+export const fetchCouponById = (id) => async (dispatch) => {
+  const response = await axios.get(`http://localhost:5000/coupons?id=${id}`);
+  dispatch({
+    type: "FETCH_COUPON_BY",
+    payload: response.data,
+  });
+};
+
+
+
+
 export const fetchLoginUser = (loginData) => async (dispatch) => {
   const response = await axios.get(
     `http://localhost:5000/user?email=${loginData.email}&password=${loginData.password}`
