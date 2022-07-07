@@ -314,9 +314,9 @@ function AddressForm(props) {
                       </div>
                       <span>
                         <strong>
-                          {Number(TotalCart).toLocaleString("en-US")}
+                          {Number(TotalCart+150).toLocaleString("en-US")}
                         </strong>
-                        <p>{console.log(props.allCoupons)}</p>
+                        {/* <p>{console.log(props.allCoupons)}</p> */}
                       </span>
                     </li>
 

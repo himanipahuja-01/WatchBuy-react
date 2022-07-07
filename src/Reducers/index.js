@@ -101,7 +101,7 @@ const allProductsReducer = (state = [], action) => {
   if (action.type === "FETCH_PRODUCTS_BY_COLOR") {
     return action.payload;
   }
-
+ 
   return state;
 };
 
@@ -179,16 +179,6 @@ function todoProduct(state = initialProduct, action) {
   }
 }
 
-// // const initialstate = {items:[], filteredItems:[], size: ''}
-// // const allProductsReducer = (state=initialstate, action)=>{
-// //   switch(action.type){
-// //     case "FETCH_PRODUCTS":
-// //      return {...state, items: action.payload};
-// //      case "FETCH_PRODUCTS_BY_BRAND":
-// //      return {...state, filteredItems: action.payload.items, Brand: action.payload.Brand};
-// //       default: return state;
-// //   }
-// // }
 
 function todoAddress(state = initialAddress, action) {
   if (action.type === "GET_ADDRESS") {

@@ -109,6 +109,14 @@ export const fetchProducts = () => async (dispatch) => {
   });
 };
 
+// export const fetchProductsForSearch = () => async (dispatch) => {
+//   const response = await axios.get("http://localhost:5000/products");
+//   return dispatch({
+//     type: "FETCH_PRODUCTS_SEARCH",
+//     payload: response.data,
+//   });
+// };
+
 export const fetchProductsbyColor = (color) => async(dispatch) => {
   const response = await axios.get(
     `http://localhost:5000/products?color=${color}`
@@ -118,16 +126,6 @@ export const fetchProductsbyColor = (color) => async(dispatch) => {
     payload: response.data
   });
 };
-
-// export const fetchProductsbybrand = (Brand) => async (dispatch) => {
-//   return dispatch({
-//     type: "FETCH_PRODUCTS_BY_BRAND",
-//     payload: {
-
-//     },
-//   });
-// };
-
 
 // get number cart
 export function getNumberCart(){

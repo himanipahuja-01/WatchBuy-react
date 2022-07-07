@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Search from "../frontView/Search";
 // import Layout from "../frontView/Layout";
 
 function Navigation(props) {
@@ -57,12 +58,7 @@ function Navigation(props) {
               </Link>
             </li>
           </ul>
-          <form className="d-flex">
-            <Link to="/Search">
-            <input className="form-control me-2" type="text" placeholder="Search"  />
-            </Link>
-            {/* <button class="btn btn-outline-success me-2" type="submit">Search</button> */}
-          </form>
+        <Search/>
         </div>
       </nav>
     </div>

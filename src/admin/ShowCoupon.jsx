@@ -81,7 +81,7 @@ import { useState } from "react";
                       <div
                         className="border mt-3 px-3 heights"
                         onClick={() => {
-                          fetchCouponId(item.id);
+                          styled(item.id);
                         }}
                       >
                         <div className="d-flex align-items-center">
@@ -131,12 +131,12 @@ const mapStateToProps = (state) => {
   };
 };
 
-function mapDispatchToProps(dispatch) {
-  return {
-    fetchCouponId: (id) => dispatch(fetchCouponById(id)),
-  };
-}
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     fetchCouponId: (id) => dispatch(fetchCouponById(id)),
+//   };
+// }
 
-export default connect(mapDispatchToProps, mapStateToProps, {
+export default connect( mapStateToProps, {
   fetchCoupon,fetchCouponById
 })(ShowCoupon);
