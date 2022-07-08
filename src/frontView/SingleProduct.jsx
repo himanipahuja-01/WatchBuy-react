@@ -2,14 +2,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import { useState } from "react";
-// import { useState, useEffect } from "react";
 import { BsFillEyeFill } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa";
 import { fetchProducts, AddCart } from "../Actions/index";
 import { Link } from "react-router-dom";
-// import { TiTick } from "react-icons/ti";
 import AddButton from "./AddButton";
-// import AddtoCart from "./AddtoCart";
 
 // var cart = [];
 

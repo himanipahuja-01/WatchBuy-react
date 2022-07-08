@@ -96,7 +96,7 @@ function About(props) {
 
           </div>
 
-          <div className="col-lg-10 positioning"> 
+          <div className="col-lg-10 positioning color"> 
           
           {/* U CAN give color cls to give the background color */}
             <SingeProductShow />
