@@ -10,9 +10,11 @@ const initialProduct = {
   products: [],
 };
 
-const initialAddress = {
-  Address: [],
+const initialWishlist = {
+  Wishlist: [],
+  numberWishlist: 0,
 };
+
 
 const moviesReducer = () => {
   return [
@@ -179,21 +181,66 @@ function todoProduct(state = initialProduct, action) {
   }
 }
 
+function todoWishlist(state = initialWishlist, action) {
+  switch (action.type) {
+    case "GET_NUMBER_WISHLIST":
+      return {
+        ...state,
+      };
+    case "ADD_WISHLIST":
+      if (state.numberWishlist === 0) {
+        let wishlist = {
+          id: action.payload.id,
+          quantity: 1,
+          productname: action.payload.productname,
+          image: action.payload.image,
+          price: action.payload.price,
+          color: action.payload.color,
+          brand: action.payload.brand,
+        };
+        state.Wishlist.push(wishlist);
+      } else {
+        let check = false;
+        state.Wishlist.map((item, key) => {
+          if (item.id === action.payload.id) {
+            state.Wishlist[key].quantity++;
+            check = true;
+          }
+        });
 
-function todoAddress(state = initialAddress, action) {
-  if (action.type === "GET_ADDRESS") {
-    let addresses = {
-      id: action.payload.id,
-      contact: action.payload.contact,
-      mobile: action.payload.mobile,
-      pincode: action.payload.pincode,
-      address: action.payload.address,
-      location: action.payload.location,
-    };
-    state.Address.push(addresses);
+        if (!check) {
+          let wishlist = {
+            id: action.payload.id,
+            quantity: 1,
+            productname: action.payload.productname,
+            image: action.payload.image,
+            price: action.payload.price,
+            color: action.payload.color,
+            brand: action.payload.brand,
+          };
+          state.Wishlist.push(wishlist);
+        }
+      }
+      return {
+        ...state,
+        numberWishlist: state.numberWishlist + 1,
+      };
+
+    case "DELETE_WISHED_PRODUCT":
+      let quantity = state.Wishlist[action.payload].quantity;
+      return {
+        ...state,
+        numberWishlist: state.numberWishlist - quantity,
+        Wishlist: state.Wishlist.filter((item) => {
+          return item.id !== state.Wishlist[action.payload].id;
+        }),
+      };
+    default:
+      return state;
   }
-  return state;
 }
+
+
 
 const reducers = combineReducers({
   movies: moviesReducer,
@@ -204,7 +251,7 @@ const reducers = combineReducers({
   allCategory: allCategoryReducer,
   allProducts: allProductsReducer,
   todoProduct: todoProduct,
-  todoAddress: todoAddress,
+  todoWishlist: todoWishlist,
   allCoupons: allCouponsReducer,
 });
 

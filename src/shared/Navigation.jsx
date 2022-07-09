@@ -36,7 +36,13 @@ function Navigation(props) {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to ="/Admin/Dashboard">
-                Mobiles
+                Admin
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link className="nav-link" to ="/Wishlist">
+                Wishlist
               </Link>
             </li>
 

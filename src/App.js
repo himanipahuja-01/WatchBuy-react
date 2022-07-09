@@ -24,6 +24,7 @@ import AddtoCart from "./frontView/AddtoCart";
 import Search from "./frontView/Search";
 import AddressForm from "./frontView/AddressForm";
 import AddCoupons from "./admin/AddCoupons";
+import Wishlist from "./frontView/Wishlist";
 // import AddressEdit from "./frontView/AddressEdit";
 // import MovieList from "./MovieList";
 
@@ -34,7 +35,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home />}></Route>
           <Route path="/search" element={<Search />}></Route>
-          
+          <Route path="/Wishlist" element={<Wishlist />}></Route>  
           <Route path="/about" element={<About />}></Route>
           <Route path="/Login" element={<Login />}></Route>
           <Route path="/CreateUser" element={<CreateUser />}></Route>

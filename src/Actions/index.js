@@ -162,9 +162,24 @@ export function DecreaseQuantity(payload){
   }
 }
 
-export function getAddress(payload){
+
+//wishlist
+export function getNumberWishlist(){
+  return{
+    type: 'GET_NUMBER_WISHLIST'
+  }
+}
+
+export function AddWishlist(payload){
   return {
-    type: 'GET_ADDRESS',
+    type: 'ADD_WISHLIST',
+    payload
+  }
+}
+
+export function DeleteWishedProduct(payload){
+  return{
+    type: 'DELETE_WISHED_PRODUCT',
     payload
   }
 }

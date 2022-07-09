@@ -24,7 +24,7 @@ function AddButton(props) {
     setShow("hidden");
   };
 
-  props.fetchLoginUser()
+  props.fetchLoginUser();
   // console.log(props.userData)
 
   const handleAddCart = async (id) => {
@@ -47,7 +47,6 @@ function AddButton(props) {
     }, 1000);
     // console.log(props);
   };
- 
 
   return (
     <div>
@@ -58,26 +57,26 @@ function AddButton(props) {
         Added to Cart
         <TiTick />
       </div>
-
-      <Link to="" className="btn btn-sm text-dark p-0">
-        <i className="text-primary mr-1"></i>
-        <BsFillCartFill className="h3 pe-2" style={{ color: "#c0392b" }} />
-        <span
-          className="fw-bolder fs-6 btn-clr"
-          onClick={() => {
-            // props.AddCart(props);
-            handleAddCart(props.id);
-          }}
-        >
-          Add To Cart
-        </span>
-      </Link>
+      <div className="d-flex">
+        <Link to="" className="btn btn-sm text-dark p-0">
+          <i className="text-primary"></i>
+          <BsFillCartFill className="h5" style={{ color: "#c0392b" }} />
+          <span
+            className="fw-bolder btn-clr"
+            onClick={() => {
+              // props.AddCart(props);
+              handleAddCart(props.id);
+            }}
+          >
+            Add To Cart
+          </span>
+        </Link>
+      </div>
     </div>
   );
 }
 
 // export default AddButton;
-
 
 // const mapStateToProps = (state) => {
 //    console.log(state)
@@ -93,6 +92,8 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapDispatchToProps,  { fetchProducts, AddCart ,fetchLoginUser})(
-  AddButton
-);
+export default connect(mapDispatchToProps, {
+  fetchProducts,
+  AddCart,
+  fetchLoginUser,
+})(AddButton);

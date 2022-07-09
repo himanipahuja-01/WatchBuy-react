@@ -16,7 +16,7 @@ function Search(props) {
     (item) => item.productname.toLowerCase().indexOf(q.toLowerCase()) >= 0
   );
  
-  console.log(filteredItems);
+ 
   // setItems(filteredItems)
 
   const handleChange = (e) => {

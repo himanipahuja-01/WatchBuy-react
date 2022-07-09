@@ -6,7 +6,6 @@ import { useState } from "react";
 import {
   fetchLoginUser,
   AddCart,
-  getAddress,
   fetchCouponById
 } from "../Actions/index";
 import AddressEdit from "./AddressEdit";
@@ -350,6 +349,5 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   fetchLoginUser,
   AddCart,
-  getAddress,
   fetchCouponById
 })(AddressForm);

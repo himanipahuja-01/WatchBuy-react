@@ -37,7 +37,7 @@ class AdminLayout extends Component {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to ="/Admin/Dashboard">
-                Mobiles
+                Admin
               </Link>
             </li>
 
