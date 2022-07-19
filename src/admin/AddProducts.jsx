@@ -98,16 +98,16 @@ class AddProducts extends Component {
 
   render() {
     return (
-      <div className="conatiner-fluid">
+      <div className="conatiner-fluid position-relative">
         <div className="row">
-        <div className="col-lg-3">
+        <div className="col-lg-3 col-sm-3 col-2 col-md-3">
             </div>
-          <div className="col-lg-9">
+          <div className="col-lg-9 col-md-9 col-sm-8 col-9 position-absolute top-0 end-0">
             <Form onSubmit={this.onSubmit}>
               {({ handleSubmit, form, submitting, pristine, values }) => (
                 <form
                   onSubmit={handleSubmit}
-                  className="form m-4 p-4"
+                  className="form m-1 p-3"
                 >
                   <div className="">
                     <div className="mb-3">

@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom";
+import {  FiWatch } from "react-icons/fi";
+import {  GiWatch } from "react-icons/gi";
+import { BsSmartwatch , BsWatch } from "react-icons/bs";
 
 export default class Carousel extends Component {
   render() {
     return (
       <>
-      <div id="carouselExampleCaptions" className="carousel slide margin" data-bs-ride="carousel">
+      {/* <div id="carouselExampleCaptions" className="carousel slide margin" data-bs-ride="carousel">
   <div className="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -42,14 +45,80 @@ export default class Carousel extends Component {
     <span className="carousel-control-next-icon" aria-hidden="true"></span>
     <span className="visually-hidden">Next</span>
   </button>
-</div>
+</div> */}
 
 
-  <div className="hero_area container-fluid">
+  <div className="hero_area container-fluid margin">
   
-    <section className=" slider_section position-relative">
-      <div className="carousel slide" data-ride="carousel">
-        <div className="carousel-inner">
+    <section className="slider_section position-relative col-lg-12 col-sm-12 col-md-12 col-12">
+      <div className="" data-ride="carousel">
+        <div className="">
+          <div className="">
+            <div className="slider_item-box">
+              <div className="slider_item-container">
+                <div className="container-fluid">
+                  <div className="row">
+                    <div className="offset-lg-2 offset-md-2 offset-1 offset-sm-1 col-md-12 col-lg-5 col-sm-12 col-12">
+                      <div className="slider_item-detail">
+                        <div>
+                          <h3 className="slider_heading">
+                            50% OFF <br/>
+                            ON First order
+                          </h3>
+                          <p>
+                          You can get a lot of options while searching for a watch for professional use. Brands like Kenneth Cole, Anne Klien, and Tommy Hilfiger are some of the top choices you can go for while looking for workwear accessories. You can also shop from the exclusive Titan workwear collection to find yourself some of the most stylish designs for office looks
+                          </p>
+                          <div className="d-flex">
+                            <Link to="/About" className="slider_btn">
+                              Order Now
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="offset-sm-1 col-md-8 col-lg-4 col-xl-4">
+                      <div className="hero_img-box">
+                        <img src="images/mainn.svg" className = "img-fluid" style={{height: "400px"}} alt=""/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* <div className="carousel-item active">
+            <div className="slider_item-box">
+              <div className="slider_item-container">
+                <div className="container-fluid">
+                  <div className="row">
+                    <div className="offset-2 col-md-4 col-lg-4">
+                      <div className="slider_item-detail">
+                        <div>
+                          <h2 className="slider_heading">
+                            50% OFF <br/>
+                            ON First order
+                          </h2>
+                          <p>
+                          You can get a lot of options while searching for a watch for professional use. Brands like Kenneth Cole, Anne Klien, and Tommy Hilfiger are some of the top choices you can go for while looking for workwear accessories. You can also shop from the exclusive Titan workwear collection to find yourself some of the most stylish designs for office looks
+                          </p>
+                          <div className="d-flex">
+                            <Link to="/About" className="slider_btn">
+                              Order Now
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-md-6">
+                      <div className="hero_img-box">
+                        <img src="images/mainn.svg" className = "img-fluid" style={{height: "400px"}} alt=""/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div className="carousel-item">
             <div className="slider_item-box">
               <div className="slider_item-container">
@@ -60,52 +129,13 @@ export default class Carousel extends Component {
                         <div>
                           <h2 className="slider_heading">
                             50% OFF <br/>
-                            First order
+                            ON First order
                           </h2>
                           <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore
-                            et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nis
+                          You can get a lot of options while searching for a watch for professional use. Brands like Kenneth Cole, Anne Klien, and Tommy Hilfiger are some of the top choices you can go for while looking for workwear accessories. You can also shop from the exclusive Titan workwear collection to find yourself some of the most stylish designs for office looks
                           </p>
-                          <div className="d-flex">
-                            <Link to="" className="slider_btn">
-                              Order Now
-                            </Link>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-6 col-lg-4">
-                      <div className="hero_img-box">
-                        <img src="images/hero.png" className = "img-fluid" alt=""/>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="carousel-item active">
-            <div className="slider_item-box">
-              <div className="slider_item-container">
-                <div className="container-fluid">
-                  <div className="row">
-                    <div className="offset-2 col-md-4 col-lg-4">
-                      <div className="slider_item-detail">
-                        <div>
-                          <h2 className="slider_heading">
-                            50% OFF <br/>
-                            First order
-                          </h2>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore
-                            et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nis
-                          </p>
-                          <div className="d-flex">
-                            <Link to="" className="slider_btn">
+                          <div className="d-flex mb-5">
+                            <Link to="/About" className="slider_btn">
                               Order Now
                             </Link>
                           </div>
@@ -114,50 +144,14 @@ export default class Carousel extends Component {
                     </div>
                     <div className="col-md-6">
                       <div className="hero_img-box">
-                        <img src="images/hero.png" className = "img-fluid" alt=""/>
+                        <img src="images/mainn.svg" className = "img-fluid" style={{height: "400px"}} alt=""/>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="carousel-item">
-            <div className="slider_item-box">
-              <div className="slider_item-container">
-                <div className="container-fluid">
-                  <div className="row">
-                    <div className="offset-2 col-md-4 col-lg-4">
-                      <div className="slider_item-detail">
-                        <div>
-                          <h2 className="slider_heading">
-                            50% OFF <br/>
-                            First order
-                          </h2>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore
-                            et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nis
-                          </p>
-                          <div className="d-flex">
-                            <Link to="" className="slider_btn">
-                              Order Now
-                            </Link>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="hero_img-box">
-                        <img src="images/shopping-illustration.webp" className = "img-fluid" alt=""/>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          </div> */}
         </div>
         <Link className="carousel-control-prev" to="#carouselExampleControls" role="button" data-slide="prev">
           <span className="sr-only">Previous</span>
@@ -172,53 +166,53 @@ export default class Carousel extends Component {
 
   <section className="detail_section">
     <div className="container-fluid">
-      <div className="row">
-        <div className="col-lg-3">
-          <div className="detail_img-box">
-            <img src="images/detail.png" alt="" className="w-100"/>
-          </div>
-        </div>
-        <div className=" col-lg-7">
+      <div className="row ">
+        
+        <div className="col-lg-12 col-md-6 col-sm-4 d-flex justify-content-center">
           <div className="detail_container">
             <div className="detail-box d-box-1">
-              <Link to="">
+              
                 <div className="detail-content">
-                  <img src="images/d-1.png" alt=""/>
+                  {/* <img src="images/d-1.png" alt=""/> */}
+                  <BsSmartwatch className='fa-3x text-white'/>
                   <h5>
-                    Care kids
+                    Fossil
                   </h5>
                 </div>
-              </Link>
+              
             </div>
             <div className="detail-box d-box-2">
-              <Link to="">
+              
                 <div className="detail-content">
-                  <img src="images/d-2.png" alt=""/>
+                  {/* <img src="images/d-2.png" alt=""/> */}
+                  <FiWatch className='fa-3x text-white'/>
                   <h5>
-                    Baby boy
+                    Titan
                   </h5>
                 </div>
-              </Link>
+           
             </div>
             <div className="detail-box d-box-3">
-              <Link to="">
+              
                 <div className="detail-content">
-                  <img src="images/d-3.png" alt=""/>
+                  {/* <img src="images/d-3.png" alt=""/> */}
+                  <GiWatch className='fa-3x text-white'/>
                   <h5>
-                    Baby girl
+                    Rado
                   </h5>
                 </div>
-              </Link>
+              
             </div>
             <div className="detail-box d-box-4">
-              <Link to="">
+              
                 <div className="detail-content">
-                  <img src="images/d-4.png" alt=""/>
+                  {/* <img src="images/d-4.png" alt=""/> */}
+                  <BsWatch className='fa-3x text-white'/>
                   <h5>
-                    Sale
+                  Daniel Klein
                   </h5>
                 </div>
-              </Link>
+              
             </div>
           </div>
         </div>
@@ -226,286 +220,55 @@ export default class Carousel extends Component {
     </div>
   </section>
 
-  {/* <section className="products_section">
-    <div className="heading_container">
-      <h2>
-        New Products In Store
-      </h2>
-      <p>
-        Featured Product Just Arrived
-      </p>
-    </div> */}
-   
-    {/* <div className="container layout_padding">
-      <div className="product_container">
-        <Link to="">
-          <div className="product_box">
-            <div className="product_img-box">
-              <img src="images/p1.png" alt=""/>
-              <span>
-                Sale
-              </span>
-            </div>
-            <div className="product_detail-box">
-              <span>
-                $120.00
-              </span>
-              <p>
-                Passage of Lorem Ipsum, you
-              </p>
-            </div>
-          </div>
-        </Link>
-        <Link to="">
-          <div className="product_box">
-            <div className="product_img-box">
-              <img src="images/p2.png" alt=""/>
-              <span>
-                Sale
-              </span>
-            </div>
-            <div className="product_detail-box">
-              <span>
-                $110.00
-              </span>
-              <p>
-                Passage of Lorem Ipsum, you
-              </p>
-            </div>
-          </div>
-        </Link>
-        <Link to="">
-          <div className="product_box">
-            <div className="product_img-box">
-              <img src="images/p3.png" alt=""/>
-              <span>
-                Sale
-              </span>
-            </div>
-            <div className="product_detail-box">
-              <span>
-                $150.00
-              </span>
-              <p>
-                Passage of Lorem Ipsum, you
-              </p>
-            </div>
-          </div>
-        </Link>
-        <Link to="">
-          <div className="product_box">
-            <div className="product_img-box">
-              <img src="images/p4.png" alt=""/>
-              <span>
-                Sale
-              </span>
-            </div>
-            <div className="product_detail-box">
-              <span>
-                $150.00
-              </span>
-              <p>
-                Passage of Lorem Ipsum, you
-              </p>
-            </div>
-          </div>
-        </Link>
-        <Link to="">
-          <div className="product_box">
-            <div className="product_img-box">
-              <img src="images/p5.png" alt=""/>
-              <span>
-                Sale
-              </span>
-            </div>
-            <div className="product_detail-box">
-              <span>
-                $150.00
-              </span>
-              <p>
-                Passage of Lorem Ipsum, you
-              </p>
-            </div>
-          </div>
-        </Link>
-        <Link to="">
-          <div className="product_box">
-            <div className="product_img-box">
-              <img src="images/p6.png" alt=""/>
-              <span>
-                Sale
-              </span>
-            </div>
-            <div className="product_detail-box">
-              <span>
-                $150.00
-              </span>
-              <p>
-                Passage of Lorem Ipsum, you
-              </p>
-            </div>
-          </div>
-        </Link>
-        <Link to="">
-          <div className="product_box">
-            <div className="product_img-box">
-              <img src="images/p7.png" alt=""/>
-              <span>
-                Sale
-              </span>
-            </div>
-            <div className="product_detail-box">
-              <span>
-                $150.00
-              </span>
-              <p>
-                Passage of Lorem Ipsum, you
-              </p>
-            </div>
-          </div>
-        </Link>
-        <Link to="">
-          <div className="product_box">
-            <div className="product_img-box">
-              <img src="images/p8.png" alt=""/>
-              <span>
-                Sale
-              </span>
-            </div>
-            <div className="product_detail-box">
-              <span>
-                $150.00
-              </span>
-              <p>
-                Passage of Lorem Ipsum, you
-              </p>
-            </div>
-          </div>
-        </Link>
-        <Link to="">
-          <div className="product_box">
-            <div className="product_img-box">
-              <img src="images/p9.png" alt=""/>
-              <span>
-                Sale
-              </span>
-            </div>
-            <div className="product_detail-box">
-              <span>
-                $150.00
-              </span>
-              <p>
-                Passage of Lorem Ipsum, you
-              </p>
-            </div>
-          </div>
-        </Link>
-        <Link to="">
-          <div className="product_box">
-            <div className="product_img-box">
-              <img src="images/p10.png" alt=""/>
-              <span>
-                Sale
-              </span>
-            </div>
-            <div className="product_detail-box">
-              <span>
-                $150.00
-              </span>
-              <p>
-                Passage of Lorem Ipsum, you
-              </p>
-            </div>
-          </div>
-        </Link>
-        <Link to="">
-          <div className="product_box">
-            <div className="product_img-box">
-              <img src="images/p11.png" alt=""/>
-              <span>
-                Sale
-              </span>
-            </div>
-            <div className="product_detail-box">
-              <span>
-                $150.00
-              </span>
-              <p>
-                Passage of Lorem Ipsum, you
-              </p>
-            </div>
-          </div>
-        </Link>
-        <Link to="">
-          <div className="product_box">
-            <div className="product_img-box">
-              <img src="images/p12.png" alt=""/>
-              <span>
-                Sale
-              </span>
-            </div>
-            <div className="product_detail-box">
-              <span>
-                $150.00
-              </span>
-              <p>
-                Passage of Lorem Ipsum, you
-              </p>
-            </div>
-          </div>
-        </Link>
-      </div>
-    </div>
-  </section> */}
 
   <section className="find_section layout_padding-bottom">
     <div className="container-fluid">
       <div className="row">
-        <div className="col-lg-6 col-md-8 offset-md-2">
+        <div className="col-lg-7 col-md-10 col-10 offset-md-1">
           <div className="find_container">
             <div className="row">
-              <div className="col-sm-6">
+              <div className="col-sm-8 col-8 col-6 col-lg-6 col-md-6">
                 <div className="find_container-img">
-                  <img src="images/find-img.png" alt=""/>
+                  <img src="images/find-img.jpg" className='' alt=""/>
                 </div>
               </div>
-              <div className="col-sm-6">
+              <div className="col-sm-4 col-4 col-md-4 col-lg-5 col-4">
                 <h3>
-                  Find Everything <br/>
-                  From A to Z
+                 SEASON OF SMILES <br/>
+                  FLAT 20% OFF
                 </h3>
-                <p>
+                {/* <p>
                   Shop Back to school
-                </p>
+                </p> */}
               </div>
             </div>
           </div>
-          <div className="shop_container">
+          <div className="shop_container1">
             <div className="row">
               <div className="col-sm-6">
-                <p>
-                  Shoes
-                </p>
+                <h2>
+                  Watches
+                </h2>
                 <h3>
                   Shop by catagories
                 </h3>
                 <div>
-                  <Link to="">
+                  <Link to="/About" className='text-decoration-none'>
                     View More
                   </Link>
                 </div>
               </div>
               <div className="col-sm-6">
                 <div className="shoe_img-box">
-                  <img src="images/shoes.png" alt=""/>
+                  <img src="images/shoes.jpg" className='imaged' alt=""/>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="col-md-4">
+        <div className="col-lg-4 d-sm-none d-xl-block d-lg-block d-none">
           <div className="find_img-box">
-            <img src="images/find-hero.png" className = "img-fluid"alt=""/>
+            <img src="images/find-hero.png" className = "img-fluid" alt=""/>
           </div>
         </div>
       </div>
@@ -521,7 +284,7 @@ export default class Carousel extends Component {
         <div className="carousel-inner">
           <div className="carousel-item">
             <div className="row layout_padding2">
-              <div className="col-md-6">
+              <div className="col-lg-4">
                 <div className="client_box">
                   <div className="client_id-box">
                     <div className="client_img-box">
@@ -668,21 +431,20 @@ export default class Carousel extends Component {
         <div className="row">
           <div className="col-sm-7">
             <h3>
-              Best offers on any makeup items
+              Best offers on any watch
             </h3>
             <p>
-              Contrary to popular belief, Lorem Ipsum is not simply random
-              text. It has roots in a piece of classical
+            Choose from a wide variety of kids watches that are fun, durable and bold. From superhero-themed watches for boys to Disney princess watches for girls, surprise your kids with cool new watches!
             </p>
-            <div>
+            {/* <div>
               <Link to="">
                 Shop Now
               </Link>
-            </div>
+            </div> */}
           </div>
           <div className="col-sm-5">
             <div className="item_img-box">
-              <img src="images/items.png" alt=""/>
+              <img src="images/items.jpg" className="" alt=""/>
             </div>
           </div>
         </div>
@@ -713,211 +475,6 @@ export default class Carousel extends Component {
       </div>
     </div>
   </section>
-
-  <section className="info_section layout_padding">
-    <div className="container links_container">
-      <div className="row ">
-        <div className="col-md-3">
-          <h3>
-            CUSTOMER SERVICE
-          </h3>
-          <ul>
-            <li>
-              <Link to="">
-                International Help
-              </Link>
-            </li>
-            <li>
-              <Link to="">
-                Contact Customer Care
-              </Link>
-            </li>
-            <li>
-              <Link to="">
-                Return Policy
-              </Link>
-            </li>
-            <li>
-              <Link to="">
-                Privacy Policy
-              </Link>
-            </li>
-            <li>
-              <Link to="">
-                Shipping Information
-              </Link>
-            </li>
-            <li>
-              <Link to="">
-                Promotion Terms
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <div className="col-md-3">
-          <h3>
-            LET US HELP YOU
-          </h3>
-          <ul>
-            <li>
-              <Link to="">
-                Your Account
-              </Link>
-            </li>
-            <li>
-              <Link to="">
-                Your Orders
-              </Link>
-            </li>
-            <li>
-              <Link to="">
-                Shipping Rates &amp; Policies
-              </Link>
-            </li>
-            <li>
-              <Link to="">
-                Amazon Prime
-              </Link>
-            </li>
-            <li>
-              <Link to="">
-                Returns &amp; Replacements
-              </Link>
-            </li>
-            <li>
-              <Link to="">
-                Help
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <div className="col-md-3">
-          <h3>
-            INFORMATION
-          </h3>
-          <ul>
-            <li>
-              <Link to="">
-                About Us
-              </Link>
-            </li>
-            <li>
-              <Link to="">
-                Careers
-              </Link>
-            </li>
-            <li>
-              <Link to="">
-                Sell on shop
-              </Link>
-            </li>
-            <li>
-              <Link to="">
-                Press &amp; News
-              </Link>
-            </li>
-            <li>
-              <Link to="">
-                Competitions
-              </Link>
-            </li>
-            <li>
-              <Link to="">
-                Terms &amp; Conditions
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <div className="col-md-3">
-          <h3>
-            OUR SHOP
-          </h3>
-          <ul>
-            <li>
-              <Link to="">
-                Daily Deals
-              </Link>
-            </li>
-            <li>
-              <Link to="">
-                App Only Deals
-              </Link>
-            </li>
-            <li>
-              <Link to="">
-                Our Hottest Products
-              </Link>
-            </li>
-            <li>
-              <Link to="">
-                Gift Vouchers
-              </Link>
-            </li>
-            <li>
-              <Link to="">
-                Trending Product
-              </Link>
-            </li>
-            <li>
-              <Link to="">
-                Hot Flash Sale
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div className="container">
-      <div className="follow_container">
-        <div className="row">
-          <div className="col-md-9">
-            <div className="app_container">
-              <h3>
-                DOWNLOAD OUR APPS
-
-              </h3>
-              <div>
-                <img src="images/google-play.png" alt=""/>
-                <img src="images/apple-store.png" alt=""/>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-3 ">
-            <div className="info_social">
-              <div>
-                <Link to="">
-                  <img src="images/fb.png" alt=""/>
-                </Link>
-              </div>
-              <div>
-                <Link to="">
-                  <img src="images/twitter.png" alt=""/>
-                </Link>
-              </div>
-              <div>
-                <Link to="">
-                  <img src="images/linkedin.png" alt=""/>
-                </Link>
-              </div>
-              <div>
-                <Link to="">
-                  <img src="images/instagram.png" alt=""/>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section className="container-fluid footer_section">
-    <p>
-      Copyright © 2019 All Rights Reserved By
-      <Link to="https://html.design/">Free Html Templates</Link>
-    </p>
-  </section>
-
 
       </>
     )

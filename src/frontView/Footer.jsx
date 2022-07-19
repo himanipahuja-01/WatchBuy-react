@@ -6,72 +6,211 @@ export default class Footer extends Component {
     return (
       <>
       {/* <!-- Footer Start --> */}
-    <div className="container-fluid bg-secondary text-dark mt-5 pt-5">
-        <div className="row px-xl-5 pt-5">
-            <div className="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
-                <Link to="" className="text-decoration-none">
-                    <h1 className="mb-4 display-5 font-weight-semi-bold"><span className="text-primary font-weight-bold border border-white px-3 mr-1">E</span>Shopper</h1>
+    <div className="container-fluid bg-dark text-dark">
+    <section className="info_section layout_padding">
+    <div className="container links_container">
+      <div className="row ">
+        <div className="col-md-3">
+          <h3>
+            CUSTOMER SERVICE
+          </h3>
+          <ul>
+            <li>
+              <Link to="">
+                International Help
+              </Link>
+            </li>
+            <li>
+              <Link to="">
+                Contact Customer Care
+              </Link>
+            </li>
+            <li>
+              <Link to="">
+                Return Policy
+              </Link>
+            </li>
+            <li>
+              <Link to="">
+                Privacy Policy
+              </Link>
+            </li>
+            <li>
+              <Link to="">
+                Shipping Information
+              </Link>
+            </li>
+            <li>
+              <Link to="">
+                Promotion Terms
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div className="col-md-3">
+          <h3>
+            LET US HELP YOU
+          </h3>
+          <ul>
+            <li>
+              <Link to="">
+                Your Account
+              </Link>
+            </li>
+            <li>
+              <Link to="">
+                Your Orders
+              </Link>
+            </li>
+            <li>
+              <Link to="">
+                Shipping Rates &amp; Policies
+              </Link>
+            </li>
+            <li>
+              <Link to="">
+                Amazon Prime
+              </Link>
+            </li>
+            <li>
+              <Link to="">
+                Returns &amp; Replacements
+              </Link>
+            </li>
+            <li>
+              <Link to="">
+                Help
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div className="col-md-3">
+          <h3>
+            INFORMATION
+          </h3>
+          <ul>
+            <li>
+              <Link to="">
+                About Us
+              </Link>
+            </li>
+            <li>
+              <Link to="">
+                Careers
+              </Link>
+            </li>
+            <li>
+              <Link to="">
+                Sell on shop
+              </Link>
+            </li>
+            <li>
+              <Link to="">
+                Press &amp; News
+              </Link>
+            </li>
+            <li>
+              <Link to="">
+                Competitions
+              </Link>
+            </li>
+            <li>
+              <Link to="">
+                Terms &amp; Conditions
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div className="col-md-3">
+          <h3>
+            OUR SHOP
+          </h3>
+          <ul>
+            <li>
+              <Link to="">
+                Daily Deals
+              </Link>
+            </li>
+            <li>
+              <Link to="">
+                App Only Deals
+              </Link>
+            </li>
+            <li>
+              <Link to="">
+                Our Hottest Products
+              </Link>
+            </li>
+            <li>
+              <Link to="">
+                Gift Vouchers
+              </Link>
+            </li>
+            <li>
+              <Link to="">
+                Trending Product
+              </Link>
+            </li>
+            <li>
+              <Link to="">
+                Hot Flash Sale
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div className="container">
+      <div className="follow_container">
+        <div className="row">
+          <div className="col-md-9">
+            <div className="app_container">
+              <h3>
+                DOWNLOAD OUR APPS
+
+              </h3>
+              <div>
+                <img src="images/google-play.png" alt=""/>
+                <img src="images/apple-store.png" alt=""/>
+              </div>
+            </div>
+          </div>
+          <div className="col-md-3 ">
+            <div className="info_social">
+              <div>
+                <Link to="">
+                  <img src="images/fb.png" alt=""/>
                 </Link>
-                <p>Dolore erat dolor sit lorem vero amet. Sed sit lorem magna, ipsum no sit erat lorem et magna ipsum dolore amet erat.</p>
-                <p className="mb-2"><i className="fa fa-map-marker-alt text-primary mr-3"></i>123 Street, New York, USA</p>
-                <p className="mb-2"><i className="fa fa-envelope text-primary mr-3"></i>info@example.com</p>
-                <p className="mb-0"><i className="fa fa-phone-alt text-primary mr-3"></i>+012 345 67890</p>
+              </div>
+              <div>
+                <Link to="">
+                  <img src="images/twitter.png" alt=""/>
+                </Link>
+              </div>
+              <div>
+                <Link to="">
+                  <img src="images/linkedin.png" alt=""/>
+                </Link>
+              </div>
+              <div>
+                <Link to="">
+                  <img src="images/instagram.png" alt=""/>
+                </Link>
+              </div>
             </div>
-            <div className="col-lg-8 col-md-12">
-                <div className="row">
-                    <div className="col-md-4 mb-5">
-                        <h5 className="font-weight-bold text-dark mb-4">Quick Links</h5>
-                        <div className="d-flex flex-column justify-content-start">
-                            <Link className="text-dark mb-2" to="index.html"><i className="fa fa-angle-right mr-2"></i>Home</Link>
-                            <Link className="text-dark mb-2" to="shop.html"><i className="fa fa-angle-right mr-2"></i>Our Shop</Link>
-                            <Link className="text-dark mb-2" to="detail.html"><i className="fa fa-angle-right mr-2"></i>Shop Detail</Link>
-                            <Link className="text-dark mb-2" to="cart.html"><i className="fa fa-angle-right mr-2"></i>Shopping Cart</Link>
-                            <Link className="text-dark mb-2" to="checkout.html"><i className="fa fa-angle-right mr-2"></i>Checkout</Link>
-                            <Link className="text-dark" to="contact.html"><i className="fa fa-angle-right mr-2"></i>Contact Us</Link>
-                        </div>
-                    </div>
-                    <div className="col-md-4 mb-5">
-                        <h5 className="font-weight-bold text-dark mb-4">Quick Links</h5>
-                        <div className="d-flex flex-column justify-content-start">
-                            <Link className="text-dark mb-2" to="index.html"><i className="fa fa-angle-right mr-2"></i>Home</Link>
-                            <Link className="text-dark mb-2" to="shop.html"><i className="fa fa-angle-right mr-2"></i>Our Shop</Link>
-                            <Link className="text-dark mb-2" to="detail.html"><i className="fa fa-angle-right mr-2"></i>Shop Detail</Link>
-                            <Link className="text-dark mb-2" to="cart.html"><i className="fa fa-angle-right mr-2"></i>Shopping Cart</Link>
-                            <Link className="text-dark mb-2" to="checkout.html"><i className="fa fa-angle-right mr-2"></i>Checkout</Link>
-                            <Link className="text-dark" to="contact.html"><i className="fa fa-angle-right mr-2"></i>Contact Us</Link>
-                        </div>
-                    </div>
-                    <div className="col-md-4 mb-5">
-                        <h5 className="font-weight-bold text-dark mb-4">Newsletter</h5>
-                        <form action="">
-                            <div className="form-group">
-                                <input type="text" className="form-control border-0 py-4" placeholder="Your Name" required="required" />
-                            </div>
-                            <div className="form-group">
-                                <input type="email" className="form-control border-0 py-4" placeholder="Your Email"
-                                    required="required" />
-                            </div>
-                            <div>
-                                <button className="btn btn-primary btn-block border-0 py-3" type="submit">Subscribe Now</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-        <div className="row border-top border-light mx-xl-5 py-4">
-            <div className="col-md-6 px-xl-0">
-                <p className="mb-md-0 text-center text-md-left text-dark">
-                    &copy; <Link className="text-dark font-weight-semi-bold" to="#">Your Site Name</Link>. All Rights Reserved. Designed
-                    by
-                    <Link className="text-dark font-weight-semi-bold" to="https://htmlcodex.com">HTML Codex</Link><br/>
-                    Distributed By <Link to="https://themewagon.com" target="_blank">ThemeWagon</Link>
-                </p>
-            </div>
-            <div className="col-md-6 px-xl-0 text-center text-md-right">
-                <img className="img-fluid" src="img/payments.png" alt=""/>
-            </div>
-        </div>
+      </div>
+    </div>
+  </section>
+
+  <section className="container-fluid footer_section">
+    <p>
+      Copyright © 2019 All Rights Reserved By
+      <Link to="https://html.design/">Free Html Templates</Link>
+    </p>
+  </section>
+
     </div>
     {/* <!-- Footer End --> */}
 

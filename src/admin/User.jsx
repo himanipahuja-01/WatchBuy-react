@@ -14,8 +14,8 @@ function User(props) {
     <div>
       <div className="container-fluid">
         <div className="row m-2">
-          <div className="col-lg-3"></div>
-          <div className="col-lg-9">
+          <div className="col-lg-3 col-sm-4 col-2 col-md-3"></div>
+          <div className="col-lg-9 col-md-9 col-sm-8 col-9">
 
           <table class="table table-striped table-hover border mt-4 table-danger">
   <thead>

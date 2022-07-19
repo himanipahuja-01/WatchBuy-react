@@ -4,23 +4,24 @@ import {
   DeleteWishedProduct,
   fetchLoginUser,
   AddWishlist,
-  
 } from "../Actions/index";
 import { connect } from "react-redux";
 import AddButton from "./AddButton";
 import { ImCross } from "react-icons/im";
 
 function Wishlist(props) {
-  props.fetchLoginUser();
+  // props.fetchLoginUser();
   let ListCart = [];
-//   let TotalCart = 0;
   Object.keys(props.items.Wishlist).forEach(function (item) {
-    // TotalCart +=
-    //   props.items.Wishlist[item].quantity * props.items.Wishlist[item].price;
     ListCart.push(props.items.Wishlist[item]);
   });
 
-  console.log(props.items);
+  const hello = (index) => {
+    console.log(index);
+    props.DeleteWishedProduct(index);
+  };
+
+  // console.log(props.items.Wishlist);
 
   return (
     <div>
@@ -30,16 +31,16 @@ function Wishlist(props) {
           <p>{props.items.numberWishlist} Items</p>
         </div>
 
-        <div className="container layout_padding">
-          <div className="product_container container-fluid">
-            {ListCart.map((item, index) => {
-              console.log(item);
+        <div className="container-fluid layout_padding">
+          <div className="product_container">
+            {ListCart.map((item, key) => {
+              // console.log(item.quantity);
               // console.log(key);
               return (
-                <>
-                  <div className="text-decoration-none shadow-lg m-4">
-                    <div onClick={()=>DeleteWishedProduct(item.id)}>
-                    <ImCross className="icon" />
+                <div key={key}>
+                  <div className="text-decoration-none shadow m-4 p-1">
+                    <div>
+                      <ImCross className="icon" onClick={() => hello(key)} />
                     </div>
                     <div className="product_box">
                       <div
@@ -63,7 +64,7 @@ function Wishlist(props) {
                       </div>
                     </div>
                   </div>
-                </>
+                </div>
               );
             })}
           </div>
@@ -86,5 +87,4 @@ export default connect(mapStateToProps, {
   DeleteWishedProduct,
   fetchLoginUser,
   AddWishlist,
- 
 })(Wishlist);

@@ -41,11 +41,14 @@ class AddCategory extends Component {
       <div>
         <div className="container-fluid">
         <div className="row m-2">
-        <div className="col-lg-3">
+        <div className="col-lg-3 col-sm-4 col-3 col-md-3">
             </div>
-        <div className="col-lg-5">
-          <h2>Add Category</h2>
-
+        <div className="col-lg-9 col-md-9 col-sm-8 col-9">
+          <div className="p-1 bg-dark mt-3 rounded">
+          <h2 className="text-white">Add Category</h2>
+          </div>
+<div className="row">
+  <div className="col-xl-12 col-lg-12 col-md-12 col-12 col-sm-12 mb-3">
           <Form
             onSubmit={this.onSubmit}
             initialValues={{ categoryName: "" }}
@@ -182,7 +185,7 @@ class AddCategory extends Component {
                     type="button"
                     onClick={form.reset}
                     disabled={submitting || pristine}
-                    className="btn btn-primary mx-4"
+                    className="btn btn-primary m-1"
                   >
                     Reset
                   </button>
@@ -191,9 +194,12 @@ class AddCategory extends Component {
             )}
           </Form>
         </div>
+        </div>
 
-        <div className="col-lg-4">
-          <h2>Add Categories</h2>
+        <div className="col-lg-12 col-sm-12 col-md-12 col-12 shadow">
+            <div className="p-1 bg-dark mt-3 rounded">
+          <h2 className="text-white">Categories</h2>
+          </div>
 
           <table className="table">
             <thead>
@@ -216,6 +222,7 @@ class AddCategory extends Component {
               })}
             </tbody>
           </table>
+        </div>
         </div>
       </div>
       </div>

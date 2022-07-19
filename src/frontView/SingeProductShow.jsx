@@ -20,10 +20,10 @@ class SingeProductShow extends Component {
       <div>
         <div className="container-fluid">
           <div className="row">
-            {this.props.products.map((item) => {
+            {this.props.products.map((item,index) => {
               // console.log(this.props.products);
               return (
-                <div className="col-xl-3 col-md-3 d-flex mb-2 justify-content-around">
+                <div className="col-xl-3 col-lg-4 col-md-6 col-sm-7 col-10 d-flex mb-2 justify-content-around" key={index}>
                   <SingleProduct
                     key={item.id}
                     id={item.id}

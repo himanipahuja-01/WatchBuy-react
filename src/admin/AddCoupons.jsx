@@ -14,8 +14,8 @@ function AddCoupons(props) {
             
             <div className="container-fluid">
           <div className="row m-3">
-            <div className="col-lg-3"></div>
-            <div className="col-lg-9">
+            <div className="col-lg-3 col-sm-4 col-3 col-md-3"></div>
+            <div className="col-lg-9 col-md-9 col-sm-8 col-9">
               <Form
                 onSubmit={onSubmit}
                 subscription={{ submitting: true, pristine: true }}
@@ -88,6 +88,8 @@ function AddCoupons(props) {
                       />
                     </div>
 
+                    <div className="d-flex flex-row">
+
                     <div className="buttons mt-3">
                       <button
                         type="submit"
@@ -100,10 +102,11 @@ function AddCoupons(props) {
                         type="button"
                         onClick={form.reset}
                         disabled={submitting || pristine}
-                        className="btn btn-primary mx-4"
+                        className="btn btn-primary m-2"
                       >
                         Reset
                       </button>
+                    </div>
                     </div>
                   </form>
                 )}

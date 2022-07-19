@@ -235,6 +235,7 @@ function todoWishlist(state = initialWishlist, action) {
           return item.id !== state.Wishlist[action.payload].id;
         }),
       };
+      
     default:
       return state;
   }

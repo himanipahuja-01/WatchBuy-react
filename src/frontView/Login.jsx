@@ -47,14 +47,14 @@ function Login(props) {
   return (
     <div>
       
-      <section className="vh-100">
-  <div className="container-fluid h-custom">
-    <div className="row d-flex justify-content-center align-items-center h-100 mt-5">
-      <div className="col-md-9 col-lg-6 col-xl-5">
+      <section className="">
+  <div className="container-fluid h-custom margin3">
+    <div className="row d-flex justify-content-center align-items-center">
+      <div className="col-md-7 col-lg-5 col-sm-5">
         <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
           className="img-fluid" alt="Sample image"/>
       </div>
-      <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+      <div className="col-md-8 col-lg-6 col-sm-4 offset-lg-1">
         <form onSubmit={onSubmit}>
           <div className="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
             <p className="lead fw-normal mb-0 me-3">Sign in with</p>
@@ -75,7 +75,7 @@ function Login(props) {
             <p className="text-center fw-bold mx-3 mb-0">Or</p>
           </div>
 
-          <div className="form-outline mb-4">
+          <div className="form-outline mb-4 me-5">
           <label className="form-label">
                   <b>Email address</b>
                 </label>
@@ -84,7 +84,7 @@ function Login(props) {
             {/* <label className="form-label" for="form3Example3">Email address</label> */}
           </div>
 
-          <div className="form-outline mb-3">
+          <div className="form-outline mb-3 me-5">
           <label className="form-label">
                   <b>Password</b>
                 </label>
@@ -104,7 +104,7 @@ function Login(props) {
             <a href="#!" className="text-body">Forgot password?</a>
           </div>
 
-          <div className="text-center text-lg-start mt-4 pt-2">
+          <div className="text-center text-lg-start mt-4 pt-2 mb-5">
             <button type="submit" className="btn btn-primary btn-lg"
               // style="padding-left: 2.5rem; padding-right: 2.5rem;"
               >Login</button>

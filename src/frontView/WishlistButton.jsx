@@ -33,7 +33,7 @@ function WishlistButton(props) {
     setShow("hidden");
   };
 
-  props.fetchLoginUser();
+  // props.fetchLoginUser();
 
   const handleAddCart = async (id) => {
     wishlist.push(id);
@@ -41,13 +41,13 @@ function WishlistButton(props) {
       method: "patch",
       url: "http://localhost:5000/user/1",
       data: {
-        wishlist : wishlist,
+        wishlist: wishlist,
       },
     });
 
     props.AddWishlist(props.productDetails);
     styled();
-    styleSheet()
+    styleSheet();
 
     setTimeout(() => {
       hide();
@@ -57,22 +57,20 @@ function WishlistButton(props) {
   return (
     <div>
       <div
-        className="bg-dark sizing ms-auto text-white mt-5 shadow rounded"
+        className="bg-dark sizing ms-auto text-white mt-5 shadow rounded d-flex justify-content-center"
         style={styling}
       >
         Added to Wishlist
-        <FaHeart />
+        <FaHeart className="fs-5 m-1"/>
       </div>
 
-     
-        <div className="d-flex">
-          <FaHeart
-            className="fs-3 wishlist"
-            style={style}
-            onClick={() => handleAddCart(props.id)}
-          />
-        </div>
-    
+      <div className="d-flex">
+        <FaHeart
+          className="fs-3 wishlist"
+          style={style}
+          onClick={() => handleAddCart(props.id)}
+        />
+      </div>
     </div>
   );
 }

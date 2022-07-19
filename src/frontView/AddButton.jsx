@@ -24,7 +24,7 @@ function AddButton(props) {
     setShow("hidden");
   };
 
-  props.fetchLoginUser();
+  // props.fetchLoginUser();
   // console.log(props.userData)
 
   const handleAddCart = async (id) => {

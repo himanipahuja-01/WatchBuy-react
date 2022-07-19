@@ -5,7 +5,7 @@ function BlankCart(props) {
     return (
         <div>
             <div class="">
-        <div class="container margin">
+        <div class="container margin mb-5">
             <div class="row">
                 <div class="offset-lg-3 col-lg-6 col-md-12 col-12 text-center">
                     <img src="images/cartempty.webp" alt="" class="img-fluid mb-4"/>

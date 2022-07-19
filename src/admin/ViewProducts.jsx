@@ -18,11 +18,11 @@ class ViewProducts extends Component {
   render() {
     return (
       <div>
-        <div className="container-fluid">
+        <div className="container">
           <div className="row">
-            <div className="col-lg-3"></div>
-            <div className="col-lg-9">
-              <table className="table w-100">
+            <div className="col-lg-3 col-sm-4 col-3 col-md-3"></div>
+            <div className="col-lg-9 col-md-9 col-sm-8 col-9">
+              <table className="table p-0">
                 <thead>
                   <tr>
                     {/* <th>Category Name</th> */}
@@ -42,7 +42,7 @@ class ViewProducts extends Component {
 
                         <td>
                           <Link
-                            className="btn btn-info mb-3"
+                            className="btn btn-info m-1"
                             to={`ProductEdit/${item.id}`}
                           >
                             Edit

@@ -14,9 +14,9 @@ export default class Offers extends Component {
     return (
       <div>
         <div className="container-fluid">
-          <div className="row m-3">
-            <div className="col-lg-3"></div>
-            <div className="col-lg-9">
+          <div className="row m-1">
+            <div className="col-lg-3 col-sm-4 col-3 col-md-3"></div>
+            <div className="col-lg-9 col-md-9 col-sm-8 col-9">
               <Link to="/admin/offer/coupons" className="text-decoration-none btn w-100 bt">
                 Add Coupons
               </Link>
@@ -25,7 +25,7 @@ export default class Offers extends Component {
                 subscription={{ submitting: true, pristine: true }}
               >
                 {({ handleSubmit, form, submitting, pristine }) => (
-                  <form onSubmit={handleSubmit} className="p-5 shadow">
+                  <form onSubmit={handleSubmit} className="p-1 shadow">
                     {/* <div className="form-group">
               <label className="form-label fw-bold">Upload Image</label>
                 <Field name="image" component="input" type="file" className="form-control"/> */}

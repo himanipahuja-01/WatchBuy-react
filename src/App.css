@@ -101,6 +101,9 @@
 .margin2 {
   margin-top: 150px !important;
 }
+.margin3 {
+  margin-top: 100px !important;
+}
 
 .divider:after,
 .divider:before {
@@ -119,7 +122,7 @@
 }
 
 .sizing {
-  width: 150px;
+  width: 170px;
   height: 40px;
   position: fixed;
   top: 40px;
@@ -214,7 +217,7 @@
   } */
   
   .layout_padding {
-    padding: 75px 0;
+    padding: 55px 0;
   }
   
   .layout_padding2 {
@@ -239,7 +242,7 @@
   
   /*header section*/
   .hero_area {
-    background-color: #c0adb6;
+    background-color: #cdc5cc;
   }
   
   .hero_area.sub_pages {
@@ -401,7 +404,7 @@
   
   /* slider section */
   
-  .slider_item-container .row col-md-4 col-lg-4 {
+  .slider_item-container .row {
     padding: 0;
   }
   
@@ -414,10 +417,11 @@
   }
   
   .slider_item-detail .slider_heading {
-    font-weight: 500;
-    font-size: 72px;
+    font-weight: 400;
+    font-size: 62px;
     font-family: "Dosis", sans-serif;
     text-transform: uppercase;
+    margin-top: 40px;
   }
   
   .slider_item-detail p {
@@ -519,17 +523,18 @@
   
   /* detail section */
   .detail_section {
-    padding-top: 45px;
+    padding-top: 10px;
   }
   
   .detail_container {
     display: flex;
-    padding-top: 14%;
+    padding-top: 8%;
+    padding-bottom: 8%;
   }
   
   .detail-box {
-    min-width: 150px;
-    min-height: 150px;
+    min-width: 200px;
+    min-height: 200px;
     border-radius: 100%;
     display: flex;
     justify-content: center;
@@ -540,8 +545,8 @@
   .detail-box::before {
     content: "";
     position: absolute;
-    width: 220px;
-    height: 220px;
+    width: 300px;
+    height: 300px;
     top: auto;
     left: auto;
     background-color: #f6f1ed;
@@ -553,7 +558,7 @@
   
   .detail-box.d-box-1::before,
   .detail-box.d-box-3::before {
-    clip: rect(110px, 220px, 220px, 0);
+    clip: rect(110px, 300px, 300px, 0);
   }
   
   .detail-box:hover {
@@ -566,7 +571,7 @@
   
   .detail-box.d-box-2::before,
   .detail-box.d-box-4::before {
-    clip: rect(0, 220px, 110px, 0);
+    clip: rect(0, 300px, 110px, 0);
   }
   
   .detail-box h5 {
@@ -575,17 +580,21 @@
     margin-top: 7px;
   }
   
-  .detail-box.d-box-1,
-  .detail-box.d-box-4 {
+  
+  .detail-box.d-box-1 {
     background-color: #142e59;
   }
   
   .detail-box.d-box-2 {
-    background-color: #ff47d9;
+    background-color: #986a8f;
   }
   
   .detail-box.d-box-3 {
     background-color: #ec4045;
+  }
+
+  .detail-box.d-box-4 {
+    background-color: #b57745;
   }
   
   .detail-box .detail-content {
@@ -602,11 +611,11 @@
   
   /* product section */
   .products_section {
-    margin-top: -90px;
+    margin-top: -70px;
   }
   
   .sub_page .products_section {
-    margin-top: 75px;
+    margin-top: 25px;
   }
   
   .products_section .heading_container {
@@ -682,9 +691,10 @@
   }
   
   .find_container,
-  .shop_container {
-    background-color: #f3f3f3;
+  .shop_container1 {
+    background-color: #92878756;
     margin: 20px 0;
+    height: 250px;
   }
   
   .find_section .row {
@@ -692,7 +702,13 @@
   }
   
   .find_container-img {
-    padding: 35px 0 35px 40px;
+    /* padding: 35px 60px 5px 40px; */
+    padding-left: 20px;
+    padding-top: 10px;
+  }
+
+  .imaged{
+    height: 200px;
   }
   
   .shoe_img-box {
@@ -714,7 +730,7 @@
   .shop_container  {
     display: inline-block;
     padding: 5px 12px;
-    background-color: #ff47d9;
+    background-color: #cdc5cc;
     color: #fefeff;
     margin-top: 10px;
   }
@@ -840,7 +856,7 @@
   .item_container {
     display: inline-block;
     padding: 5px 12px;
-    background-color: #ff47d9;
+    background-color: #dbc3d6;
     color: #fefeff;
   }
   

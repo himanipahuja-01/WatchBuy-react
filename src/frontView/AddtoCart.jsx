@@ -127,7 +127,7 @@ function AddtoCart({
               <div className="container py-5">
                 <div className="row d-flex justify-content-center my-4">
             
-                  <div className="col-lg-8">
+                  <div className="col-lg-8 col-12 col-sm-12 col-md-12">
 
                   {/* <div className="accordion mb-5 borderRou" id="accordionExample">
                     <div className="accordion-item">
@@ -168,7 +168,7 @@ function AddtoCart({
                   </div> */}
 
                     <div className="border mb-4 borderRou bg-white">
-                      <div className="card-header py-3 borderRou">
+                      <div className="card-header py-3 borderRou h-100">
                         <h5 className="mb-0">Cart - {items.numberCart}</h5>
                       </div>
                       {ListCart.map((item, index) => {
@@ -178,7 +178,7 @@ function AddtoCart({
                           <>
                             <div className="card-body">
                               <div className="row">
-                                <div className="col-lg-3 col-md-12 mb-4 mb-lg-0">
+                                <div className="col-lg-3 col-md-3 col-sm-3 col-3 mb-4 mb-lg-0">
                                   <div
                                     className="bg-image hover-overlay hover-zoom ripple rounded"
                                     data-mdb-ripple-color="light"
@@ -200,7 +200,7 @@ function AddtoCart({
                                   </div>
                                 </div>
 
-                                <div className="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                                <div className="col-lg-5 col-md-5 col-sm-4 col-4 mb-4 mb-lg-0">
                                   <p>
                                     <strong>{item.productname}</strong>
                                   </p>
@@ -225,7 +225,7 @@ function AddtoCart({
                                   </button>
                                 </div>
 
-                                <div className="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                                <div className="col-lg-4 col-md-4 col-sm-4 col-4 mb-4 mb-lg-0">
                                   {/* <div
                                     className="d-flex mb-4"
                                     style={{ width: "10px" }}

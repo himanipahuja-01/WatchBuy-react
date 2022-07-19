@@ -71,7 +71,7 @@ class AdminLayout extends Component {
 
         <div className="container-fluid mt-5">
           <div className="row">
-            <div className="col-lg-3 gx-0 position-fixed">
+            <div className="col-lg-3 col-sm-4 col-3 col-md-3 gx-0 position-fixed">
             <div
               className="flex-column flex-shrink-0 p-3 text-white bg-dark"
               style={{ height: 'calc(150vh - 56px)' }}
@@ -80,7 +80,7 @@ class AdminLayout extends Component {
                 to="/"
                 className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none" activeclassname = "active"
               >
-                <svg className="bi me-2" width="40" height="32"></svg>
+                <svg className="bi" width="40" height="32"></svg>
                 <span className="fs-4">Sidebar</span>
               </NavLink>
               <hr />

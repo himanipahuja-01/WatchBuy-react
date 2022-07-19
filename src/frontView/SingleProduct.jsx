@@ -137,14 +137,14 @@ function SingleProduct(props) {
   );
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    fetchProducts: () => dispatch(fetchProducts()),
-    AddCart: (props) => dispatch(AddCart(props)),
-  };
-}
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     fetchProducts: () => dispatch(fetchProducts()),
+//     AddCart: (props) => dispatch(AddCart(props)),
+//   };
+// }
 
-// export default SingleProduct;
-export default connect(mapDispatchToProps, { fetchProducts, AddCart })(
-  SingleProduct
-);
+export default SingleProduct;
+// export default connect(mapDispatchToProps, { fetchProducts, AddCart })(
+//   SingleProduct
+// );
